@@ -13,6 +13,11 @@ public class Item {
 		this.name = json.get("name").textValue();
 		this.price = json.get("cost").doubleValue();
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("Item{id=%s, price=%s, name=%s}", itemId, price, name);
+	}
 
 	public String id() {
 		return itemId;
