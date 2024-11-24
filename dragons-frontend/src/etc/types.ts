@@ -27,6 +27,16 @@ export type Quest = {
   probability: string;
 }
 
+export type QuestResult = {
+  success: boolean;
+  lives: number;
+  gold: number;
+  score: number;
+  highScore: number;
+  turn: number;
+  message: String;
+}
+
 export type ShopItem = {
   id: string;
   name: string;
