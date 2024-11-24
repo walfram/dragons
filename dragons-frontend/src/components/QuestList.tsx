@@ -1,5 +1,34 @@
+import {useAppSelector} from "../store/store.ts";
+import {useEffect, useState} from "react";
+import {Quest} from "../etc/types.ts";
+
 export function QuestList() {
+  
+  const gameId = useAppSelector(state => state.gameState.game.gameId);
+  
+  const [quests, setQuests] = useState<Quest[]>([]);
+  
+  useEffect(() => {
+    fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
+    .then(response => response.json())
+    .then(data => setQuests(data as Quest[]));
+  }, []);
+  
   return (
-      <div>quest list</div>
+      <section>
+        <div>quest list</div>
+        {quests.map(quest => <QuestItem key={quest.adId} quest={quest} />)}
+      </section>
+  );
+}
+
+function QuestItem({quest} : {quest: Quest}) {
+  return (
+    <details>
+      <summary>quest: {quest.message}</summary>
+      <div>reward: {quest.reward}</div>
+      <div>expires: {quest.expiresIn}</div>
+      <div><button>accept</button></div>
+    </details>  
   );
 }

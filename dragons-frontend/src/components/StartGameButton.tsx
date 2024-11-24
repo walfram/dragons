@@ -1,9 +1,17 @@
-type StartGameButtonProps = {
-  onStartGame: (gameStarted: boolean) => void;
-}
+import React from "react";
+import {useAppDispatch} from "../store/store.ts";
+import {startNewGame} from "../store/gameStateSlice.ts";
 
-export function StartGameButton({onStartGame}: StartGameButtonProps) {
+export function StartGameButton() {
+  
+  const dispatch = useAppDispatch();
+  
+  function onStartNewGameClick(event: React.MouseEvent) {
+    event.preventDefault();
+    dispatch(startNewGame());
+  }
+  
   return (
-      <button onClick={() => onStartGame(true)}>start new game</button>
+      <button onClick={onStartNewGameClick}>start new game</button>
   );
 }
