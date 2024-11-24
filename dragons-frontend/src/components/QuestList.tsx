@@ -8,15 +8,19 @@ export function QuestList() {
   
   const [quests, setQuests] = useState<Quest[]>([]);
   
-  useEffect(() => {
+  function fetchQuests() {
     fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
     .then(response => response.json())
     .then(data => setQuests(data as Quest[]));
+  }
+  
+  useEffect(() => {
+    fetchQuests();
   }, []);
   
   return (
       <section>
-        <div>quest list</div>
+        <div>quest list <button onClick={fetchQuests}>refresh</button></div>
         {quests.map(quest => <QuestItem key={quest.adId} quest={quest} />)}
       </section>
   );
