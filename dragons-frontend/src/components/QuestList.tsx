@@ -37,6 +37,7 @@ function QuestItem({quest} : {quest: Quest}) {
   return (
     <details>
       <summary>quest: {quest.message}</summary>
+      <div>probability: {quest.probability}</div>
       <div>reward: {quest.reward}</div>
       <div>expires: {quest.expiresIn}</div>
       <div>
