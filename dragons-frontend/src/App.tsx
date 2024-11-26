@@ -7,7 +7,7 @@ function App() {
   
   // TODO ping (fetch/OPTIONS) server?
   
-  const gameStarted = useAppSelector(state => state.gameState.started);
+  const gameStarted = useAppSelector(state => state.gameSlice.started);
 
   return (
     <>

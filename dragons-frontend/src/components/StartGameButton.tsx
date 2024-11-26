@@ -1,6 +1,6 @@
 import React from "react";
 import {useAppDispatch} from "../store/store.ts";
-import {startNewGame} from "../store/gameStateSlice.ts";
+import {startNewGame} from "../store/gameSlice.ts";
 import "./StartGameButton.css";
 
 export function StartGameButton() {
