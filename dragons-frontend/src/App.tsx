@@ -1,6 +1,7 @@
 import {StartGameButton} from "./components/StartGameButton.tsx";
 import {PlayGamePage} from "./components/PlayGamePage.tsx";
 import {useAppSelector} from "./store/store.ts";
+import "./App.css";
 
 function App() {
   console.log("rendering app");

@@ -1,48 +1,39 @@
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {Quest} from "../etc/types.ts";
-import {acceptQuest} from "../store/gameSlice.ts";
+
+import {fetchQuests} from "../store/questSlice.ts";
 
 export function QuestList() {
-  
+  console.log("QuestList rendered");
+
   const gameId = useAppSelector(state => state.gameSlice.gameId);
-  
-  const [quests, setQuests] = useState<Quest[]>([]);
-  
-  function fetchQuests() {
-    fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
-    .then(response => response.json())
-    .then(data => setQuests(data as Quest[]));
-  }
-  
+  const quests: Quest[] = useAppSelector(state => state.questSlice.quests);
+  const loading = useAppSelector(state => state.questSlice.loading);
+  const dispatch = useAppDispatch();
+
   useEffect(() => {
-    fetchQuests();
+    dispatch(fetchQuests(gameId));
   }, []);
-  
+
   return (
-      <section>
-        <div>quest list <button onClick={fetchQuests}>refresh</button></div>
-        {quests.map(quest => <QuestItem key={quest.adId} quest={quest} />)}
-      </section>
+      <>
+        {loading && <section>loading...</section>}
+        {!loading && <section>
+          <div>quest list <button onClick={() => dispatch(fetchQuests(gameId))}>refresh</button></div>
+          <div className={"quest-cards"}>
+            {quests.map(quest => <QuestCard key={quest.adId} quest={quest}/>)}
+          </div>
+        </section>}
+      </>
   );
 }
 
-function QuestItem({quest} : {quest: Quest}) {
-  const dispatch = useAppDispatch();
-  
-  function onAcceptQuest(adId: string) {
-    dispatch(acceptQuest(adId));
-  }
-  
+function QuestCard({quest}: { quest: Quest }) {
   return (
-    <details>
-      <summary>quest: {quest.message}</summary>
-      <div>probability: {quest.probability}</div>
-      <div>reward: {quest.reward}</div>
-      <div>expires: {quest.expiresIn}</div>
-      <div>
-        <button onClick={() => onAcceptQuest(quest.adId)}>accept</button>
+      <div className={"quest-card"}>
+        <div>{quest.message}</div>
+        <div>{quest.probability}</div>
       </div>
-    </details>  
   );
 }
