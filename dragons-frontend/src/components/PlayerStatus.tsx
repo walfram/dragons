@@ -1,4 +1,5 @@
 import {useAppSelector} from "../store/store.ts";
+import {GameEndButton} from "./GameEndButton.tsx";
 
 export function PlayerStatus() {
   const game = useAppSelector(state => state.gameSlice);
@@ -12,6 +13,7 @@ export function PlayerStatus() {
         <div>score: {game.score}</div>
         <div>high score: {game.highScore}</div>
         <div>turn: {game.turn}</div>
+        <GameEndButton />
       </section>
   )
 }

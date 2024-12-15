@@ -1,6 +1,7 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {GameId, GameState, QuestResult, StartGameResponse} from "../etc/types.ts";
 import {RootState} from "./store.ts";
+import {saveGameId} from "../etc/saved-games.ts";
 
 type GameSlice = GameId & GameState & {
   started: boolean;
@@ -23,6 +24,7 @@ export const gameSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(startNewGame.fulfilled, (_state, action: PayloadAction<StartGameResponse>) => {
+      saveGameId(action.payload.gameId as unknown as GameId);
       return {...action.payload, started: true};
     });
     builder.addCase(startNewGame.pending, (_state) => {
@@ -46,6 +48,11 @@ export const gameSlice = createSlice({
     builder.addCase(acceptQuest.rejected, (_state, action) => {
       console.error("rejected", action.payload);
     });
+    
+    builder.addCase(endGame, (state) => {
+      saveGameId(state.gameId as unknown as GameId);
+      state.started = false;
+    });
   }
 });
 
@@ -55,6 +62,8 @@ export const startNewGame = createAsyncThunk(
     .then(response => response.json())
     .then(data => data as StartGameResponse)
 );
+
+export const endGame = createAction("end-game");
 
 export const acceptQuest = createAsyncThunk(
     'acceptQuest',

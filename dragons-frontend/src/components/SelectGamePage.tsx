@@ -1,9 +1,9 @@
-import {useSavedGameIds} from "../etc/hooks.ts";
 import {GameStartButton} from "./GameStartButton.tsx";
 import {GameContinueButton} from "./GameContinueButton.tsx";
+import {savedGameIds} from "../etc/saved-games.ts";
 
 export function SelectGamePage() {
-  const {gameIds} = useSavedGameIds();
+  const gameIds = savedGameIds();
 
   return (
       <section>
