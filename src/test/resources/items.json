@@ -1,0 +1,29 @@
+{
+	"items": [
+		{
+			"id": "arrow",
+			"name": "Casual arrow",
+			"cost": 1
+		},
+		{
+			"id": "mega-arrow",
+			"name": "Mega arrow",
+			"cost": 100
+		},
+		{
+			"id": "anti-dragon-rocket",
+			"name": "Anti dragon homing rocket",
+			"cost": 1000
+		},
+		{
+			"id": "anti-dragon-artillery",
+			"name": "Anti-dragon flak artillery complex",
+			"cost": 5000
+		},
+		{
+			"id": "gatling-arrow-gun",
+			"name": "Gatling arrow gun",
+			"cost": 2500
+		}
+	]
+}

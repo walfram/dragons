@@ -1,0 +1,28 @@
+{
+	"messages": [
+		{
+			"adId": "quest-1",
+			"message": "Free text description of the message",
+			"reward": 100.0,
+			"expiresIn": 10
+		},
+		{
+			"adId": "quest-2",
+			"message": "Free text description of the message",
+			"reward": 200.0,
+			"expiresIn": 5
+		},
+		{
+			"adId": "quest-3",
+			"message": "Free text description of the message",
+			"reward": 300.0,
+			"expiresIn": 3
+		},
+		{
+			"adId": "quest-4",
+			"message": "Free text description of the message",
+			"reward": 1000.0,
+			"expiresIn": 1
+		}
+	]
+}
