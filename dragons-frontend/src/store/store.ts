@@ -1,10 +1,12 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch, useSelector} from "react-redux";
 import {gameSlice} from "./gameSlice.ts";
+import {questSlice} from "./questSlice.ts";
 
 export const store = configureStore({
   reducer: {
-    gameSlice: gameSlice.reducer
+    gameSlice: gameSlice.reducer,
+    questSlice: questSlice.reducer
   },
   devTools: true
 });
