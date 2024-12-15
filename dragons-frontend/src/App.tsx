@@ -1,17 +1,18 @@
-import {useState} from 'react'
-import './App.css'
 import {StartGameButton} from "./components/StartGameButton.tsx";
 import {PlayGamePage} from "./components/PlayGamePage.tsx";
+import {useAppSelector} from "./store/store.ts";
 
 function App() {
   console.log("rendering app");
   
-  const [gameStarted, setGameStarted] = useState<boolean>(false);
+  // TODO ping (fetch/OPTIONS) server?
+  
+  const gameStarted = useAppSelector(state => state.gameState.started);
 
   return (
     <>
       {gameStarted && <PlayGamePage />}
-      {!gameStarted && <StartGameButton onStartGame={setGameStarted} />}
+      {!gameStarted && <StartGameButton />}
     </>
   )
 }

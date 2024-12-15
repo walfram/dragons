@@ -1,0 +1,40 @@
+#root {
+  min-height: 100vh;
+  width: 100vw;
+}
+
+#root > * {
+  padding: 1rem;
+}
+
+#root, .content-wrapper {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+header {
+
+}
+
+aside {
+  order: -1;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+footer {
+  grid-area: main;
+}
+
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row;
+  }
+
+  aside {
+    flex: 0 0 260px;
+  }
+}
