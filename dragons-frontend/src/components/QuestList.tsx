@@ -1,6 +1,7 @@
-import {useAppSelector} from "../store/store.ts";
+import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {useEffect, useState} from "react";
 import {Quest} from "../etc/types.ts";
+import {acceptQuest} from "../store/gameStateSlice.ts";
 
 export function QuestList() {
   
@@ -27,12 +28,20 @@ export function QuestList() {
 }
 
 function QuestItem({quest} : {quest: Quest}) {
+  const dispatch = useAppDispatch();
+  
+  function onAcceptQuest(adId: string) {
+    dispatch(acceptQuest(adId));
+  }
+  
   return (
     <details>
       <summary>quest: {quest.message}</summary>
       <div>reward: {quest.reward}</div>
       <div>expires: {quest.expiresIn}</div>
-      <div><button>accept</button></div>
+      <div>
+        <button onClick={() => onAcceptQuest(quest.adId)}>accept</button>
+      </div>
     </details>  
   );
 }
