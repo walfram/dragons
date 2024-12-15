@@ -34,11 +34,6 @@ export const gameSlice = createSlice({
     });
 
     builder.addCase(acceptQuest.fulfilled, (state, action: PayloadAction<QuestResult>) => {
-      // state.game.gold = action.payload.gold;
-      // state.game.highScore = action.payload.gold;
-      // state.game.score = action.payload.score;
-      // state.game.lives = action.payload.lives;
-      // state.game.turn = action.payload.turn;
       // TODO check action.payload.success
       // TODO trigger quest list refresh
       return {
