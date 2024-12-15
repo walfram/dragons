@@ -15,15 +15,20 @@ public class Quest {
 		this.reward = json.get("reward").doubleValue();
 		this.expiresIn = json.get("expiresIn").intValue();
 	}
-	
+
+	@Override
+	public String toString() {
+		return String.format("Quest{id=%s, reward=%s, expires=%s, desc=%s}", questId, reward, expiresIn, description);
+	}
+
 	public int expiresIn() {
 		return expiresIn;
 	}
-	
+
 	public String description() {
 		return description;
 	}
-	
+
 	public String id() {
 		return questId;
 	}

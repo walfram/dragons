@@ -44,7 +44,18 @@ public class DragonsClientApp {
 				
 				List<Item> items = game.pollShop();
 				logger.debug("available items = {}", items.size());
-				// TODO choose item
+				
+				// probably first should buy, then choose quest as buying advances round
+				Optional<Item> o = items.stream().filter(item -> {
+					return item.price() <= game.state().gold();
+				}).findFirst();
+				
+				if (o.isPresent()) {
+					logger.debug("buying = {}", o.get().name());
+					game.buy(o.get());
+				} else {
+					logger.debug("cannot buy anything, current cash = {}", game.state().gold());
+				}
 				
 				game.solve(optional.get());
 			} else {
