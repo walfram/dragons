@@ -3,7 +3,7 @@ import {useAppSelector} from "../store/store.ts";
 import "./PlayerStatus.css";
 
 export function PlayerStatus() {
-  const game = useAppSelector(state => state.gameState.game);
+  const game = useAppSelector(state => state.gameSlice);
 
   return (
       <section className={"player-status"}>

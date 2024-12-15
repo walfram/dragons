@@ -1,23 +1,18 @@
-// returned by POST https://dragonsofmugloar.com/api/v2/game/start
-export type StartGameResponse = {
-  gameId: string;
+export type GameState = {
   lives: number;
   gold: number;
   level: number;
   score: number;
   highScore: number;
   turn: number;
+};
+
+export type GameId = {
+  gameId: string;
 }
 
-// returned by POST https://dragonsofmugloar.com/api/v2/:gameId/investigate/reputation
-export type Reputation = {
-  people: number;
-  state: number;
-  underworld: number;
-}
+export type StartGameResponse = GameId & GameState;
 
-// returned by GET https://dragonsofmugloar.com/api/v2/:gameId/messages
-// Quest[]
 export type Quest = {
   adId: string;
   message: string;
@@ -28,7 +23,7 @@ export type Quest = {
 }
 
 export type QuestResult = {
-  success: boolean;
+  // success: boolean;
   lives: number;
   gold: number;
   score: number;
@@ -41,4 +36,10 @@ export type ShopItem = {
   id: string;
   name: string;
   cost: string;
+}
+
+export type Reputation = {
+  people: number;
+  state: number;
+  underworld: number;
 }

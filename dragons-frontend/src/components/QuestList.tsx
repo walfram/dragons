@@ -1,11 +1,11 @@
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {useEffect, useState} from "react";
 import {Quest} from "../etc/types.ts";
-import {acceptQuest} from "../store/gameStateSlice.ts";
+import {acceptQuest} from "../store/gameSlice.ts";
 
 export function QuestList() {
   
-  const gameId = useAppSelector(state => state.gameState.game.gameId);
+  const gameId = useAppSelector(state => state.gameSlice.gameId);
   
   const [quests, setQuests] = useState<Quest[]>([]);
   

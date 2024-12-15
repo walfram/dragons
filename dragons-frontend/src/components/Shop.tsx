@@ -4,7 +4,7 @@ import {useAppSelector} from "../store/store.ts";
 
 export function Shop() {
 
-  const gameId = useAppSelector(state => state.gameState.game.gameId);
+  const gameId = useAppSelector(state => state.gameSlice.gameId);
   const [shopItems, setShopItems] = useState<ShopItem[]>([]);
 
   function fetchShopItems() {
