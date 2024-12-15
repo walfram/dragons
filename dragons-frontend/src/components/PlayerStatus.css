@@ -1,0 +1,8 @@
+.player-status {
+  display: flex;
+  gap: 1rem;
+}
+
+.player-status > div {
+  
+}

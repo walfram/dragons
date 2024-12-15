@@ -1,17 +1,20 @@
 import React from "react";
 import {useAppDispatch} from "../store/store.ts";
 import {startNewGame} from "../store/gameStateSlice.ts";
+import "./StartGameButton.css";
 
 export function StartGameButton() {
-  
+
   const dispatch = useAppDispatch();
-  
+
   function onStartNewGameClick(event: React.MouseEvent) {
     event.preventDefault();
     dispatch(startNewGame());
   }
-  
+
   return (
-      <button onClick={onStartNewGameClick}>start new game</button>
+      <div className={"start-game-button-wrap"}>
+        <button onClick={onStartNewGameClick}>start new game</button>
+      </div>
   );
 }

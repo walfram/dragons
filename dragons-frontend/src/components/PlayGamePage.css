@@ -3,10 +3,6 @@
   width: 100vw;
 }
 
-#root > * {
-  padding: 1rem;
-}
-
 #root, .content-wrapper {
   display: flex;
   flex: 1 1 auto;
@@ -14,19 +10,22 @@
 }
 
 header {
-
+  padding: 1rem;
 }
 
 aside {
   order: -1;
+  padding: 1rem;
 }
 
 main {
   flex: 1 1 auto;
+  padding: 1rem;
 }
 
 footer {
   grid-area: main;
+  padding: 1rem;
 }
 
 @media (min-width: 768px) {
