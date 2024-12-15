@@ -29,9 +29,10 @@ export const savedGameSlice = createSlice({
 
 export const continueGame = createAsyncThunk(
     "continueGame",
-    async (gameId: GameId) => {
+    async (gameId: GameId, {dispatch}) => {
       console.log("continue game", gameId);
       // TODO what next?
+      dispatch(continueGame(gameId));
     }
 )
 

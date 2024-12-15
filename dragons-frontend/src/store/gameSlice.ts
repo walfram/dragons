@@ -24,7 +24,7 @@ export const gameSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(startNewGame.fulfilled, (_state, action: PayloadAction<StartGameResponse>) => {
-      saveGameId(action.payload.gameId as unknown as GameId);
+      saveGameId({gameId: action.payload.gameId});
       return {...action.payload, started: true};
     });
     builder.addCase(startNewGame.pending, (_state) => {
@@ -48,13 +48,20 @@ export const gameSlice = createSlice({
     builder.addCase(acceptQuest.rejected, (_state, action) => {
       console.error("rejected", action.payload);
     });
-    
+
     builder.addCase(endGame, (state) => {
-      saveGameId(state.gameId as unknown as GameId);
+      saveGameId({gameId: state.gameId});
       state.started = false;
     });
   }
 });
+
+export const continueGame = createAsyncThunk(
+  "continueGame",
+  async (gameId: GameId) => {
+    // TODO
+  }  
+);
 
 export const startNewGame = createAsyncThunk(
     'startNewGame',

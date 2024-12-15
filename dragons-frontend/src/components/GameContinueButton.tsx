@@ -14,7 +14,7 @@ export function GameContinueButton({gameId} : {gameId: GameId}) {
   
   return (
       <div className={"continue-game-button-wrap"}>
-        <button onClick={onContinueGameClick}>start new game</button>
+        <button onClick={onContinueGameClick}>continue game {gameId.gameId}</button>
       </div>
   );
 }

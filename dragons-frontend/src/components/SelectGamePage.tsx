@@ -6,7 +6,7 @@ export function SelectGamePage() {
   const gameIds = savedGameIds();
 
   return (
-      <section>
+      <section className={"select-game-buttons-wrap"}>
         
         <GameStartButton />
         
