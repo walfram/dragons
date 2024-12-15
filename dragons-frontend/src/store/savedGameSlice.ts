@@ -3,10 +3,12 @@ import {GameId} from "../etc/types.ts";
 
 type SavedGameState = {
   savedGameIds: GameId[];
+  checkingGameIds: boolean;
 }
 
 const initialSavedGameState: SavedGameState = {
-  savedGameIds: []
+  savedGameIds: [],
+  checkingGameIds: false
 }
 
 export const savedGameSlice = createSlice({
@@ -14,14 +16,18 @@ export const savedGameSlice = createSlice({
   initialState: initialSavedGameState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(checkGameIds.rejected, (_state) => {
+    builder.addCase(checkGameIds.rejected, (state) => {
       console.log("checking game ids failed");
+      state.savedGameIds = [];
+      state.checkingGameIds = false;
     });
-    builder.addCase(checkGameIds.pending, (_state) => {
+    builder.addCase(checkGameIds.pending, (state) => {
       console.log("checking valid game ids...");
+      state.checkingGameIds = true;
     });
     builder.addCase(checkGameIds.fulfilled, (state, action: PayloadAction<GameId[]>) => {
       state.savedGameIds = action.payload;
+      state.checkingGameIds = false;
     });   
   }
 });

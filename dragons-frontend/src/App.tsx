@@ -4,6 +4,7 @@ import {useAppDispatch, useAppSelector} from "./store/store.ts";
 import "./App.css";
 import {GameId} from "./etc/types.ts";
 import {checkGameIds} from "./store/savedGameSlice.ts";
+import {Suspense} from "react";
 
 function useSavedGameIds() {
   const item: string = localStorage.getItem("gameIds") || "";
@@ -25,13 +26,15 @@ function App() {
   const dispatch = useAppDispatch();
   dispatch(checkGameIds(gameIds));
 
+  const checkingGameIds = useAppSelector(state => state.savedGameSlice.checkingGameIds);
+  
   const gameStarted = useAppSelector(state => state.gameSlice.started);
   
   return (
-      <>
+      <Suspense fallback={"checking saved games..."}>
         {gameStarted && <PlayGamePage/>}
         {!gameStarted && <StartGameButton/>}
-      </>
+      </Suspense>
   )
 }
 
