@@ -3,12 +3,10 @@ import {GameId} from "../etc/types.ts";
 
 type SavedGameState = {
   savedGameIds: GameId[];
-  checkingGameIds: boolean;
 }
 
 const initialSavedGameState: SavedGameState = {
   savedGameIds: [],
-  checkingGameIds: false
 }
 
 export const savedGameSlice = createSlice({
@@ -19,18 +17,23 @@ export const savedGameSlice = createSlice({
     builder.addCase(checkGameIds.rejected, (state) => {
       console.log("checking game ids failed");
       state.savedGameIds = [];
-      state.checkingGameIds = false;
     });
-    builder.addCase(checkGameIds.pending, (state) => {
+    builder.addCase(checkGameIds.pending, (_state) => {
       console.log("checking valid game ids...");
-      state.checkingGameIds = true;
     });
     builder.addCase(checkGameIds.fulfilled, (state, action: PayloadAction<GameId[]>) => {
       state.savedGameIds = action.payload;
-      state.checkingGameIds = false;
     });   
   }
 });
+
+export const continueGame = createAsyncThunk(
+    "continueGame",
+    async (gameId: GameId) => {
+      console.log("continue game", gameId);
+      // TODO what next?
+    }
+)
 
 export const checkGameIds = createAsyncThunk(
     'checkGameIds',

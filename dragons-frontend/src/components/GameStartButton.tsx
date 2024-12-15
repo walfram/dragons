@@ -2,7 +2,7 @@ import React from "react";
 import {useAppDispatch} from "../store/store.ts";
 import {startNewGame} from "../store/gameSlice.ts";
 
-export function StartGameButton() {
+export function GameStartButton() {
 
   const dispatch = useAppDispatch();
 
