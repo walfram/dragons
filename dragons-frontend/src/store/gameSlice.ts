@@ -60,6 +60,7 @@ export const continueGame = createAsyncThunk(
   "continueGame",
   async (gameId: GameId) => {
     // TODO
+    console.log("continueGame", gameId);
   }  
 );
 
