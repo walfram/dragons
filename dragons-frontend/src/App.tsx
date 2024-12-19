@@ -1,21 +1,23 @@
-import {PlayGamePage} from "./components/PlayGamePage.tsx";
+import DebugPanel from "./components/DebugPanel.tsx";
 import {useAppSelector} from "./store/store.ts";
-import "./App.css";
-import {SelectGamePage} from "./components/SelectGamePage.tsx";
+import {isGameStarted} from "./store/gameSlice.ts";
+import SelectGameView from "./components/SelectGameView.tsx";
+import GameMainView from "./components/GameMainView.tsx";
+import Spinner from "./components/Spinner.tsx";
 
-function App() {
+export default function App() {
   console.log("rendering app");
 
-  // TODO ping (fetch/OPTIONS) server?
-
-  const gameStarted = useAppSelector(state => state.gameSlice.started);
-
+  const gameStarted = useAppSelector(isGameStarted);
+  
   return (
       <>
-        {gameStarted && <PlayGamePage/>}
-        {!gameStarted && <SelectGamePage />}
+        <DebugPanel />
+
+        {!gameStarted && <SelectGameView />}
+        {gameStarted && <GameMainView />}
+        
+        <Spinner />
       </>
   );
 }
-
-export default App
