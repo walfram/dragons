@@ -11,10 +11,14 @@ export default function SelectGameView() {
         <div>SelectGameView</div>
         <div>
 
-          <div><StartNewGameButton /></div>
-          {gameIds.map(gameId => <div key={`continue-${gameId.gameId}`}><ContinueGameButton gameId={gameId} /></div>)}
-          
+          <div><StartNewGameButton/></div>
+          {gameIds.map(gameId =>
+              <div key={`continue-${gameId.gameId}`}>
+                <ContinueGameButton gameId={gameId}/>
+              </div>)}
+
         </div>
+
       </section>
   );
 }

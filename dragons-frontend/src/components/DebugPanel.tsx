@@ -1,18 +1,32 @@
 import {isGameStarted} from "../store/gameSlice.ts";
-import {useAppSelector} from "../store/store.ts";
+import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {GameId} from "../etc/types.ts";
 import {savedGameIds} from "../etc/saveGame.ts";
+import {useState} from "react";
+import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 
 export default function DebugPanel() {
-  const gameStarted = useAppSelector(isGameStarted);
+  const dispatch = useAppDispatch();
 
+  const gameStarted = useAppSelector(isGameStarted);
   const gameIds: GameId[] = savedGameIds();
 
+  const [serverCheckStatus, setServerCheckStatus] = useState<string>("not checked");
+
   function checkServer() {
+    dispatch(showSpinner());
+
     fetch(`https://dragonsofmugloar.com/api/v2/game/start`, {method: "options"})
     .then(response => response.text())
-    .then(data => console.log("server check ok", data))
-    .catch(error => console.error("server check failed", error));
+    .then(data => {
+      console.log("server check ok", data);
+      setServerCheckStatus(`checked OK, ${new Date().toISOString()}`);
+    })
+    .catch(error => {
+      console.error("server check failed", error);
+      setServerCheckStatus(`check FAILED, ${new Date().toISOString()}`);
+    })
+    .finally(() => dispatch(hideSpinner()));
   }
 
   return (
@@ -21,6 +35,7 @@ export default function DebugPanel() {
         <div>current game state started={gameStarted.toString()}</div>
         <div>
           <button onClick={() => checkServer()}>check server</button>
+          {serverCheckStatus}
         </div>
       </section>
   );
