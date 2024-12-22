@@ -22,7 +22,7 @@ export default function StartNewGameButton() {
     .then(response => response.json())
     .then(data => {
       const startGameResponse = data as StartGameResponse;
-      console.log("started new game", startGameResponse.gameId)
+      console.log("started new game", startGameResponse);
     })
     .catch(error => console.error("cannot start new game", error))
     .finally(() => dispatch(hideSpinner()));

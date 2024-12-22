@@ -1,7 +1,6 @@
 import {isGameStarted} from "../store/gameSlice.ts";
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {GameId} from "../etc/types.ts";
-import {savedGameIds} from "../etc/saveGame.ts";
 import {useState} from "react";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 
@@ -9,7 +8,7 @@ export default function DebugPanel() {
   const dispatch = useAppDispatch();
 
   const gameStarted = useAppSelector(isGameStarted);
-  const gameIds: GameId[] = savedGameIds();
+  const gameIds: GameId[] = useAppSelector(state => state.savedGameSlice.gameIds);
 
   const [serverCheckStatus, setServerCheckStatus] = useState<string>("not checked");
 
