@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {GameId, StartGameResponse} from "../etc/types.ts";
 import {RootState} from "./store.ts";
 
@@ -16,18 +16,28 @@ export const gameSlice = createSlice({
   reducers: {},
   extraReducers: builder => {
     builder.addCase(startNewGame.pending, () => {
-      
+
     });
     builder.addCase(startNewGame.rejected, () => {
-      
+
     });
     builder.addCase(startNewGame.fulfilled, () => {
-      
+
+    });
+
+    builder.addCase(continueGame, (state, action: PayloadAction<GameId>) => {
+      state.gameId = action.payload;
     });
   }
 });
 
 export const isGameStarted = (state: RootState) => state.gameSlice.gameId !== null;
+
+export const continueGame = createAction("continueGame", function (gameId: GameId) {
+  return {
+    payload: gameId
+  }
+});
 
 export const startNewGame = createAsyncThunk(
     "startNewGame",

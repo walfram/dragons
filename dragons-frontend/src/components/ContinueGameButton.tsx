@@ -4,6 +4,7 @@ import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {DeleteSavedGameDialog} from "./DeleteSaveGameDialog.tsx";
 import {useState} from "react";
 import {checkGameIsValid} from "../store/savedGameSlice.ts";
+import {continueGame} from "../store/gameSlice.ts";
 
 // function checkGameIsValid(gameId: GameId): Promise<Response> {
 //   return fetch(`https://dragonsofmugloar.com/api/v2/${gameId.gameId}/investigate/reputation`, {method: "post"})
@@ -32,6 +33,7 @@ export default function ContinueGameButton({gameId}: ContinueGameButtonProps) {
     .then(isValid => {
         console.log("game is valid");
         setIsValidGame(isValid);
+        dispatch(continueGame(gameId));
     })
     .catch(error => {
       console.error("invalid game id", error);
