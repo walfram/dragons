@@ -1,16 +1,7 @@
 import {useAppDispatch} from "../store/store.ts";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
-import {StartGameResponse} from "../etc/types.ts";
 import {saveGameId} from "../store/savedGameSlice.ts";
-
-function startNewGame() {
-  return fetch(`https://dragonsofmugloar.com/api/v2/game/start`, {method: "post"})
-  .then(response => {
-    console.log("start new game response.ok", response.ok);
-    console.log("start new game response.status", response.status);
-    return response;
-  });
-}
+import {startNewGame} from "../store/gameSlice.ts";
 
 export default function StartNewGameButton() {
   const dispatch = useAppDispatch();
@@ -19,10 +10,9 @@ export default function StartNewGameButton() {
     console.log("starting new game");
     dispatch(showSpinner());
 
-    startNewGame()
-    .then(response => response.json())
-    .then(data => {
-      const startGameResponse = data as StartGameResponse;
+    dispatch(startNewGame())
+    .unwrap()
+    .then(startGameResponse => {
       console.log("started new game", startGameResponse);
       dispatch(saveGameId({gameId: startGameResponse.gameId}));
     })

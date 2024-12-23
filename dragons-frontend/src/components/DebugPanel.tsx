@@ -15,7 +15,7 @@ export default function DebugPanel() {
   function checkServer() {
     dispatch(showSpinner());
 
-    fetch(`https://dragonsofmugloar.com/api/v2/game/start`, {method: "options"})
+    fetch("https://dragonsofmugloar.com/api/v2/game/start", {method: "options"})
     .then(response => response.text())
     .then(data => {
       console.log("server check ok", data);

@@ -29,7 +29,7 @@ export type QuestResult = {
   score: number;
   highScore: number;
   turn: number;
-  message: String;
+  message: string;
 }
 
 export type ShopItem = {

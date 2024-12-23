@@ -9,7 +9,6 @@ export function DeleteSavedGameDialog({gameId, show}: { gameId: GameId, show: bo
   
   function onDeleteGame() {
     console.log("delete saved game", gameId);
-    // TODO dispatch or invoke callback
     dispatch(removeGameId(gameId));
   }
 

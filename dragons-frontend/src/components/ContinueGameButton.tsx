@@ -3,15 +3,16 @@ import {useAppDispatch} from "../store/store.ts";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {DeleteSavedGameDialog} from "./DeleteSaveGameDialog.tsx";
 import {useState} from "react";
+import {checkGameIsValid} from "../store/savedGameSlice.ts";
 
-function checkGameIsValid(gameId: GameId): Promise<Response> {
-  return fetch(`https://dragonsofmugloar.com/api/v2/${gameId.gameId}/investigate/reputation`, {method: "post"})
-  .then(response => {
-    console.log("response.ok", response.ok);
-    console.log("response.status", response.status);
-    return response;
-  });
-}
+// function checkGameIsValid(gameId: GameId): Promise<Response> {
+//   return fetch(`https://dragonsofmugloar.com/api/v2/${gameId.gameId}/investigate/reputation`, {method: "post"})
+//   .then(response => {
+//     console.log("response.ok", response.ok);
+//     console.log("response.status", response.status);
+//     return response;
+//   });
+// }
 
 type ContinueGameButtonProps = { 
   gameId: GameId, 
@@ -26,15 +27,11 @@ export default function ContinueGameButton({gameId}: ContinueGameButtonProps) {
     console.log("continue game", gameId);
     dispatch(showSpinner());
 
-    checkGameIsValid(gameId)
-    .then(response => {
-      if (response.status === 200) {
+    dispatch(checkGameIsValid(gameId))
+    .unwrap()
+    .then(isValid => {
         console.log("game is valid");
-        setIsValidGame(true);
-        return response.json();
-      } else {
-        setIsValidGame(false);
-      }
+        setIsValidGame(isValid);
     })
     .catch(error => {
       console.error("invalid game id", error);

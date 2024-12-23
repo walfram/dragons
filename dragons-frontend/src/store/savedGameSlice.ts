@@ -1,4 +1,4 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {GameId} from "../etc/types.ts";
 
 type SavedGameState = {
@@ -19,8 +19,8 @@ export const savedGameSlice = createSlice({
     },
     saveGameId: (state, action: PayloadAction<GameId>) => {
       state.gameIds = [
-          action.payload,
-          ...state.gameIds
+        action.payload,
+        ...state.gameIds
       ];
       storeGameIds(state.gameIds);
     }
@@ -31,6 +31,14 @@ export const {
   removeGameId,
   saveGameId
 } = savedGameSlice.actions;
+
+export const checkGameIsValid = createAsyncThunk(
+    "checkGameIsValid",
+    async (gameId: GameId) => fetch(`https://dragonsofmugloar.com/api/v2/${gameId.gameId}/investigate/reputation`, {method: "post"})
+    .then(response => {
+      return response.status === 200;
+    })
+);
 
 function savedGameIds(): GameId[] {
   const s = localStorage.getItem("gameIds");
