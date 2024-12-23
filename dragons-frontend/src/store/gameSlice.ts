@@ -28,6 +28,10 @@ export const gameSlice = createSlice({
     builder.addCase(continueGame, (state, action: PayloadAction<GameId>) => {
       state.gameId = action.payload;
     });
+    
+    builder.addCase(endGame, (state) => {
+      state.gameId = null;
+    })
   }
 });
 
@@ -45,3 +49,5 @@ export const startNewGame = createAsyncThunk(
     .then(response => response.json())
     .then(data => data as StartGameResponse)
 );
+
+export const endGame = createAction("endGame");

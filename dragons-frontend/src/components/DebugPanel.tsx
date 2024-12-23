@@ -1,4 +1,4 @@
-import {isGameStarted} from "../store/gameSlice.ts";
+import {endGame, isGameStarted} from "../store/gameSlice.ts";
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {GameId} from "../etc/types.ts";
 import {useState} from "react";
@@ -27,6 +27,10 @@ export default function DebugPanel() {
     })
     .finally(() => dispatch(hideSpinner()));
   }
+  
+  function endCurrentGame() {
+    dispatch(endGame());
+  }
 
   return (
       <section className={"debug-panel"}>
@@ -36,6 +40,9 @@ export default function DebugPanel() {
           <button onClick={() => checkServer()}>check server</button>
           {serverCheckStatus}
         </div>
+        {gameStarted && <div>
+          <button onClick={() => endCurrentGame()}>end current game</button>
+        </div>}
       </section>
   );
 }
