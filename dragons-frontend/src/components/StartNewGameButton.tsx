@@ -1,6 +1,7 @@
 import {useAppDispatch} from "../store/store.ts";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {StartGameResponse} from "../etc/types.ts";
+import {saveGameId} from "../store/savedGameSlice.ts";
 
 function startNewGame() {
   return fetch(`https://dragonsofmugloar.com/api/v2/game/start`, {method: "post"})
@@ -23,6 +24,7 @@ export default function StartNewGameButton() {
     .then(data => {
       const startGameResponse = data as StartGameResponse;
       console.log("started new game", startGameResponse);
+      dispatch(saveGameId({gameId: startGameResponse.gameId}));
     })
     .catch(error => console.error("cannot start new game", error))
     .finally(() => dispatch(hideSpinner()));
