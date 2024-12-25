@@ -1,10 +1,10 @@
-import {useAppSelector} from "../store/store.ts";
 import {useEffect, useState} from "react";
 import {ShopItem} from "../etc/types.ts";
 import ShopListItem from "./ShopListItem.tsx";
+import {useGameId} from "../etc/hooks.ts";
 
 export default function Shop() {
-  const gameId = useAppSelector(state => state.gameSlice.gameId);
+  const gameId = useGameId();
 
   const [shopItems, setShopItems] = useState<ShopItem[]>([]);
 

@@ -1,10 +1,10 @@
-import {useAppSelector} from "../store/store.ts";
 import PlayerReputation from "./PlayerReputation.tsx";
 import QuestList from "./QuestList.tsx";
 import Shop from "./Shop.tsx";
+import {useGameId} from "../etc/hooks.ts";
 
 export default function GameMainView() {
-  const gameId = useAppSelector(state => state.gameSlice.gameId);
+  const gameId = useGameId();
 
   return (
       <section>

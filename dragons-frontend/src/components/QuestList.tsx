@@ -1,10 +1,10 @@
-import {useAppSelector} from "../store/store.ts";
 import {useEffect, useState} from "react";
 import {Quest} from "../etc/types.ts";
 import QuestListItem from "./QuestListItem.tsx";
+import {useGameId} from "../etc/hooks.ts";
 
 export default function QuestList() {
-  const gameId = useAppSelector(state => state.gameSlice.gameId);
+  const gameId = useGameId();
 
   const [quests, setQuests] = useState<Quest[]>([]);
 
