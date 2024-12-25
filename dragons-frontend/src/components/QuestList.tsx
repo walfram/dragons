@@ -9,7 +9,7 @@ export default function QuestList() {
   const [quests, setQuests] = useState<Quest[]>([]);
 
   useEffect(() => {
-    fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
+    fetch(`https://dragonsofmugloar.com/api/v2/${gameId?.gameId}/messages`)
     .then(response => response.json())
     .then(data => setQuests(data as Quest[]));
   }, [gameId]);

@@ -9,7 +9,7 @@ export default function Shop() {
   const [shopItems, setShopItems] = useState<ShopItem[]>([]);
 
   useEffect(() => {
-    fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/shop`)
+    fetch(`https://dragonsofmugloar.com/api/v2/${gameId?.gameId}/shop`)
     .then(response => response.json())
     .then(data => setShopItems(data as ShopItem[]));
   }, [gameId]);

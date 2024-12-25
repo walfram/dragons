@@ -8,7 +8,7 @@ export default function PlayerReputation() {
   const [reputation, setReputation] = useState<Reputation>({people: 0, state: 0, underworld: 0});
 
   useEffect(() => {
-    fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/investigate/reputation`)
+    fetch(`https://dragonsofmugloar.com/api/v2/${gameId?.gameId}/investigate/reputation`, {method: "post"})
     .then(response => response.json())
     .then(data => setReputation(data as Reputation));
   }, [gameId]);
