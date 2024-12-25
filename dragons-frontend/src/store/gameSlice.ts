@@ -21,14 +21,14 @@ export const gameSlice = createSlice({
     builder.addCase(startNewGame.rejected, () => {
 
     });
-    builder.addCase(startNewGame.fulfilled, () => {
-
+    builder.addCase(startNewGame.fulfilled, (state, action: PayloadAction<StartGameResponse>) => {
+      state.gameId = {gameId: action.payload.gameId};
     });
 
     builder.addCase(continueGame, (state, action: PayloadAction<GameId>) => {
       state.gameId = action.payload;
     });
-    
+
     builder.addCase(endGame, (state) => {
       state.gameId = null;
     })

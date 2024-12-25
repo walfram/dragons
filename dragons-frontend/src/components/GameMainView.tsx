@@ -1,5 +1,5 @@
 import {useAppSelector} from "../store/store.ts";
-import Reputation from "./Reputation.tsx";
+import PlayerReputation from "./PlayerReputation.tsx";
 import QuestList from "./QuestList.tsx";
 import Shop from "./Shop.tsx";
 
@@ -9,7 +9,7 @@ export default function GameMainView() {
   return (
       <section>
         <div>GameMainView {gameId?.gameId}</div>
-        <Reputation />
+        <PlayerReputation />
         <QuestList />
         <Shop />
       </section>
