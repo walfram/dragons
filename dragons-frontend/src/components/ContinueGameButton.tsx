@@ -6,15 +6,6 @@ import {useState} from "react";
 import {checkGameIsValid} from "../store/savedGameSlice.ts";
 import {continueGame} from "../store/gameSlice.ts";
 
-// function checkGameIsValid(gameId: GameId): Promise<Response> {
-//   return fetch(`https://dragonsofmugloar.com/api/v2/${gameId.gameId}/investigate/reputation`, {method: "post"})
-//   .then(response => {
-//     console.log("response.ok", response.ok);
-//     console.log("response.status", response.status);
-//     return response;
-//   });
-// }
-
 type ContinueGameButtonProps = { 
   gameId: GameId, 
 }
