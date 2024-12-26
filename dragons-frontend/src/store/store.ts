@@ -1,14 +1,16 @@
 import {configureStore} from "@reduxjs/toolkit";
 import {useDispatch, useSelector} from "react-redux";
-import {gameSlice} from "./gameSlice.ts";
+import {gameStatusSlice} from "./gameStatusSlice.ts";
 import {spinnerSlice} from "./spinnerSlice.ts";
 import {savedGameSlice} from "./savedGameSlice.ts";
+import {gameInstanceSlice} from "./gameInstanceSlice.ts";
 
 export const store = configureStore({
   reducer: {
     spinnerSlice: spinnerSlice.reducer,
     savedGameSlice: savedGameSlice.reducer,
-    gameSlice: gameSlice.reducer,
+    gameStatusSlice: gameStatusSlice.reducer,
+    gameInstanceSlice: gameInstanceSlice.reducer
   },
   devTools: true
 });

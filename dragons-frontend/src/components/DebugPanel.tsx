@@ -1,4 +1,4 @@
-import {endGame, isGameStarted} from "../store/gameSlice.ts";
+import {endGame, isGameStarted} from "../store/gameStatusSlice.ts";
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {GameId} from "../etc/types.ts";
 import {useState} from "react";

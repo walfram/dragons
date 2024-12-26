@@ -1,7 +1,7 @@
 import {useAppDispatch} from "../store/store.ts";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {saveGameId} from "../store/savedGameSlice.ts";
-import {startNewGame} from "../store/gameSlice.ts";
+import {startNewGame} from "../store/gameStatusSlice.ts";
 
 export default function StartNewGameButton() {
   const dispatch = useAppDispatch();

@@ -2,17 +2,17 @@ import {createAction, createAsyncThunk, createSlice, PayloadAction} from "@redux
 import {GameId, StartGameResponse} from "../etc/types.ts";
 import {RootState} from "./store.ts";
 
-type GameState = {
+type GameStatusState = {
   gameId: GameId | null;
 }
 
-const initialGameState: GameState = {
+const initialGameStatusState: GameStatusState = {
   gameId: null
 }
 
-export const gameSlice = createSlice({
-  name: "gameSlice",
-  initialState: initialGameState,
+export const gameStatusSlice = createSlice({
+  name: "gameStatusSlice",
+  initialState: initialGameStatusState,
   reducers: {},
   extraReducers: builder => {
     builder.addCase(startNewGame.pending, () => {
@@ -35,7 +35,7 @@ export const gameSlice = createSlice({
   }
 });
 
-export const isGameStarted = (state: RootState) => state.gameSlice.gameId !== null;
+export const isGameStarted = (state: RootState) => state.gameStatusSlice.gameId !== null;
 
 export const continueGame = createAction("continueGame", function (gameId: GameId) {
   return {

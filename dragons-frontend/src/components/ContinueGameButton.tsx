@@ -4,7 +4,7 @@ import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {DeleteSavedGameDialog} from "./DeleteSaveGameDialog.tsx";
 import {useState} from "react";
 import {checkGameIsValid} from "../store/savedGameSlice.ts";
-import {continueGame} from "../store/gameSlice.ts";
+import {continueGame} from "../store/gameStatusSlice.ts";
 
 type ContinueGameButtonProps = { 
   gameId: GameId, 
