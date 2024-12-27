@@ -43,6 +43,19 @@ export type ShopItem = {
   cost: string;
 }
 
+export type ItemId = {
+  gameId: GameId;
+  itemId: string;
+}
+
+export type PurchaseResponse = {
+  shoppingSuccess: string; // TODO check if this is actually boolean
+  gold: number;
+  lives: number;
+  level: number;
+  turn: number;
+};
+
 export type Reputation = {
   people: number;
   state: number;

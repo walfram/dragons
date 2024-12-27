@@ -9,7 +9,6 @@ type QuestListItemProps = {
 
 export default function QuestListItem({quest}: QuestListItemProps) {
   const dispatch = useAppDispatch();
-
   const gameId = useAppSelector(state => state.gameStatusSlice.gameId);
 
   function onQuestAcceptClick() {

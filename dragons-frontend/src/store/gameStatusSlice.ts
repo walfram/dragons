@@ -3,6 +3,7 @@ import {GameId, StartGameResponse} from "../etc/types.ts";
 import {RootState} from "./store.ts";
 
 type GameStatusState = {
+  // TODO should not be null
   gameId: GameId | null;
 }
 

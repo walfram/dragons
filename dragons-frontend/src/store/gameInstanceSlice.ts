@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {GameState, QuestId, QuestResult} from "../etc/types.ts";
+import {GameState, ItemId, PurchaseResponse, QuestId, QuestResult} from "../etc/types.ts";
 
 const initialGameInstance: GameState = {
   gold: 0,
@@ -26,7 +26,14 @@ export const gameInstanceSlice = createSlice({
       // state.level is updated on shop item purchase
     })
   }
-})
+});
+
+export const purchaseItem = createAsyncThunk(
+    "purchaseItem",
+    async (itemId: ItemId) => fetch(`https://dragonsofmugloar.com/api/v2/${itemId.gameId.gameId}/shop/buy/${itemId.itemId}`, {method: "post"})
+    .then(response => response.json())
+    .then(data => data as PurchaseResponse)
+);
 
 export const acceptQuest = createAsyncThunk(
     "acceptQuest",
