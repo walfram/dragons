@@ -15,12 +15,8 @@ export const gameStatusSlice = createSlice({
   initialState: initialGameStatusState,
   reducers: {},
   extraReducers: builder => {
-    builder.addCase(startNewGame.pending, () => {
-
-    });
-    builder.addCase(startNewGame.rejected, () => {
-
-    });
+    builder.addCase(startNewGame.pending, () => {});
+    builder.addCase(startNewGame.rejected, () => {});
     builder.addCase(startNewGame.fulfilled, (state, action: PayloadAction<StartGameResponse>) => {
       state.gameId = {gameId: action.payload.gameId};
     });

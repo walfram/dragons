@@ -23,13 +23,18 @@ export type Quest = {
 }
 
 export type QuestResult = {
-  // success: boolean;
+  success: boolean;
   lives: number;
   gold: number;
   score: number;
   highScore: number;
   turn: number;
   message: string;
+}
+
+export type QuestId = {
+  gameId: GameId;
+  adId: string;
 }
 
 export type ShopItem = {
