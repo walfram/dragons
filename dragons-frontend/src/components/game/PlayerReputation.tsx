@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import {Reputation} from "../etc/types.ts";
-import {useGameId} from "../etc/hooks.ts";
+import {Reputation} from "../../etc/types.ts";
+import {useGameId} from "../../etc/hooks.ts";
 
-export default function PlayerStats() {
+export default function PlayerReputation() {
   const gameId = useGameId();
 
   const [reputation, setReputation] = useState<Reputation>({people: 0, state: 0, underworld: 0});

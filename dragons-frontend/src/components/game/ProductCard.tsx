@@ -1,7 +1,7 @@
-import {Product} from "../etc/types.ts";
-import {useAppDispatch, useAppSelector} from "../store/store.ts";
-import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
-import {purchaseItem} from "../store/gameInstanceSlice.ts";
+import {Product} from "../../etc/types.ts";
+import {useAppDispatch, useAppSelector} from "../../store/store.ts";
+import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
+import {purchaseItem} from "../../store/gameInstanceSlice.ts";
 
 type ShopListItemProps = {
   shopItem: Product;

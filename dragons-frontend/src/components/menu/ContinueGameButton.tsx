@@ -1,10 +1,10 @@
-import {GameId} from "../etc/types.ts";
-import {useAppDispatch} from "../store/store.ts";
-import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
+import {GameId} from "../../etc/types.ts";
+import {useAppDispatch} from "../../store/store.ts";
+import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 import {DeleteSavedGameDialog} from "./DeleteSaveGameDialog.tsx";
 import {useState} from "react";
-import {checkGameIsValid} from "../store/savedGameSlice.ts";
-import {continueGame} from "../store/gameStatusSlice.ts";
+import {checkGameIsValid} from "../../store/savedGameSlice.ts";
+import {continueGame} from "../../store/gameStatusSlice.ts";
 
 type ContinueGameButtonProps = { 
   gameId: GameId, 

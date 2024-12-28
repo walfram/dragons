@@ -1,5 +1,5 @@
-import {GameState} from "../etc/types.ts";
-import {useAppSelector} from "../store/store.ts";
+import {GameState} from "../../etc/types.ts";
+import {useAppSelector} from "../../store/store.ts";
 
 export default function PlayerStatus() {
   const gameInstance : GameState = useAppSelector(state => state.gameInstanceSlice);

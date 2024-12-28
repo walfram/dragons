@@ -1,13 +1,13 @@
-import {Quest} from "../etc/types.ts";
-import {useAppDispatch, useAppSelector} from "../store/store.ts";
-import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
-import {acceptQuest} from "../store/gameInstanceSlice.ts";
+import {Quest} from "../../etc/types.ts";
+import {useAppDispatch, useAppSelector} from "../../store/store.ts";
+import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
+import {acceptQuest} from "../../store/gameInstanceSlice.ts";
 
 type QuestListItemProps = {
   quest: Quest;
 }
 
-export default function QuestListItem({quest}: QuestListItemProps) {
+export default function QuestCard({quest}: QuestListItemProps) {
   const dispatch = useAppDispatch();
   const gameId = useAppSelector(state => state.gameStatusSlice.gameId);
 

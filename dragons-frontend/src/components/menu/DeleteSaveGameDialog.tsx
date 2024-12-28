@@ -1,7 +1,7 @@
-import {GameId} from "../etc/types.ts";
+import {GameId} from "../../etc/types.ts";
 import {useEffect, useRef} from "react";
-import {useAppDispatch} from "../store/store.ts";
-import {removeGameId} from "../store/savedGameSlice.ts";
+import {useAppDispatch} from "../../store/store.ts";
+import {removeGameId} from "../../store/savedGameSlice.ts";
 
 export function DeleteSavedGameDialog({gameId, show}: { gameId: GameId, show: boolean }) {
   const dialogRef = useRef<HTMLDialogElement>(null);

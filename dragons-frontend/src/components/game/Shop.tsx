@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
-import {Product} from "../etc/types.ts";
+import {Product} from "../../etc/types.ts";
 import ProductCard from "./ProductCard.tsx";
-import {useGameId} from "../etc/hooks.ts";
+import {useGameId} from "../../etc/hooks.ts";
 
 export default function Shop() {
   const gameId = useGameId();
