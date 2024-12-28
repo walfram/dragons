@@ -49,7 +49,7 @@ export type ProductId = {
 }
 
 export type PurchaseResponse = {
-  // TODO check if this is actually boolean - checked, it is boolean, error in docs
+  // TODO this is string in docs, should report to docs team
   shoppingSuccess: boolean; 
   gold: number;
   lives: number;
