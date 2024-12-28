@@ -1,13 +1,13 @@
-import {ShopItem} from "../etc/types.ts";
+import {Product} from "../etc/types.ts";
 import {useAppDispatch, useAppSelector} from "../store/store.ts";
 import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
 import {purchaseItem} from "../store/gameInstanceSlice.ts";
 
 type ShopListItemProps = {
-  shopItem: ShopItem;
+  shopItem: Product;
 }
 
-export default function ShopListItem({shopItem}: ShopListItemProps) {
+export default function ProductCard({shopItem}: ShopListItemProps) {
   const dispatch = useAppDispatch();
   const gameId = useAppSelector(state => state.gameStatusSlice.gameId);
 

@@ -1,4 +1,4 @@
-import PlayerReputation from "./PlayerReputation.tsx";
+import PlayerStats from "./PlayerStats.tsx";
 import QuestList from "./QuestList.tsx";
 import Shop from "./Shop.tsx";
 import {useGameId} from "../etc/hooks.ts";
@@ -11,7 +11,7 @@ export default function GameMainView() {
       <section>
         <div>GameMainView {gameId?.gameId}</div>
         <PlayerStatus />
-        <PlayerReputation />
+        <PlayerStats />
         <QuestList />
         <Shop />
       </section>

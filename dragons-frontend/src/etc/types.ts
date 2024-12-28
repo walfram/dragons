@@ -22,7 +22,7 @@ export type Quest = {
   probability: string;
 }
 
-export type QuestResult = {
+export type QuestResponse = {
   success: boolean;
   lives: number;
   gold: number;
@@ -37,13 +37,13 @@ export type QuestId = {
   adId: string;
 }
 
-export type ShopItem = {
+export type Product = {
   id: string;
   name: string;
   cost: string;
 }
 
-export type ItemId = {
+export type ProductId = {
   gameId: GameId;
   itemId: string;
 }
