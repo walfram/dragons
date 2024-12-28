@@ -19,6 +19,11 @@ export default function ShopListItem({shopItem}: ShopListItemProps) {
     .then(purchaseResponse => {
       console.log("purchase response", purchaseResponse);
       // TODO show purchase result as dialog/modal
+      if (purchaseResponse.shoppingSuccess) {
+        // 
+      } else {
+        
+      }
     })
     .finally(() => dispatch(hideSpinner()));
   }

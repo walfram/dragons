@@ -24,7 +24,16 @@ export const gameInstanceSlice = createSlice({
       state.score = action.payload.score;
       state.turn = action.payload.turn;
       // state.level is updated on shop item purchase
-    })
+    });
+
+    builder.addCase(purchaseItem.rejected, () => {});
+    builder.addCase(purchaseItem.pending, () => {});
+    builder.addCase(purchaseItem.fulfilled, (state, action: PayloadAction<PurchaseResponse>) => {
+      state.turn = action.payload.turn;
+      state.lives = action.payload.lives;
+      state.gold = action.payload.gold;
+      state.level = action.payload.level;
+    });
   }
 });
 

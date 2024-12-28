@@ -18,7 +18,11 @@ export default function QuestListItem({quest}: QuestListItemProps) {
     .then(questResult => {
       console.log("quest result", questResult);
       // TODO add dialog with quest results?
-      // show questResult.message
+      if (questResult.success) {
+        // 
+      } else {
+        // 
+      }
     })
     .finally(() => dispatch(hideSpinner()));
   }
