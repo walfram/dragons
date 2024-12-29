@@ -3,14 +3,16 @@ import {useEffect, useRef} from "react";
 
 type QuestResultDialogProps = {
   questResponse: QuestResponse;
+  onClose: () => void;
 }
 
-export default function QuestResultDialog({questResponse}: QuestResultDialogProps) {
+export default function QuestResultDialog({questResponse, onClose}: QuestResultDialogProps) {
 
   const ref = useRef<HTMLDialogElement>(null);
 
   function closeDialog() {
     ref.current?.close();
+    onClose();
   }
 
   useEffect(() => {

@@ -35,7 +35,7 @@ export default function QuestCard({quest}: QuestListItemProps) {
         <div>reward: {quest.reward}</div>
         <div>expires: {quest.expiresIn}</div>
         <button onClick={() => onQuestAcceptClick()}>accept quest</button>
-        {questResponse && <QuestResultDialog questResponse={questResponse}/>}
+        {questResponse && <QuestResultDialog questResponse={questResponse} onClose={() => setQuestResponse(null)}/>}
       </div>
   )
 }
