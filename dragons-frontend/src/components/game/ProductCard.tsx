@@ -22,7 +22,7 @@ export default function ProductCard({shopItem}: ShopListItemProps) {
       if (purchaseResponse.shoppingSuccess) {
         // 
       } else {
-        
+        // 
       }
     })
     .finally(() => dispatch(hideSpinner()));
