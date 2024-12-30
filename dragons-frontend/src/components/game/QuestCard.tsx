@@ -16,7 +16,7 @@ export default function QuestCard({quest}: QuestListItemProps) {
   // TODO show result message using useRef and useEffect?
   const [questResponse, setQuestResponse] = useState<QuestResponse | null>(null);
 
-  // TODO show modal with "accept" button?
+  // TODO show modal with "accept quest" button (prevent accidental click)?
   function onQuestAcceptClick() {
     dispatch(showSpinner());
     dispatch(acceptQuest({gameId: gameId!, adId: quest.adId}))
