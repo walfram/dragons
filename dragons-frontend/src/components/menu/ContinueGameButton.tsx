@@ -6,15 +6,15 @@ import {useState} from "react";
 import {checkGameIsValid} from "../../store/savedGameSlice.ts";
 import {continueGame} from "../../store/gameStatusSlice.ts";
 
-type ContinueGameButtonProps = { 
-  gameId: GameId, 
+type ContinueGameButtonProps = {
+  gameId: GameId,
 }
 
 export default function ContinueGameButton({gameId}: ContinueGameButtonProps) {
   const dispatch = useAppDispatch();
 
   const [isValidGame, setIsValidGame] = useState<boolean>(true);
-  
+
   function onClick() {
     console.log("continue game", gameId);
     dispatch(showSpinner());
@@ -22,9 +22,9 @@ export default function ContinueGameButton({gameId}: ContinueGameButtonProps) {
     dispatch(checkGameIsValid(gameId))
     .unwrap()
     .then(isValid => {
-        console.log("game is valid");
-        setIsValidGame(isValid);
-        dispatch(continueGame(gameId));
+      console.log("game is valid");
+      setIsValidGame(isValid);
+      dispatch(continueGame(gameId));
     })
     .catch(error => {
       console.error("invalid game id", error);
@@ -36,7 +36,7 @@ export default function ContinueGameButton({gameId}: ContinueGameButtonProps) {
   return (
       <>
         <button onClick={() => onClick()}>continue game {gameId.gameId}</button>
-        <DeleteSavedGameDialog gameId={gameId} show={!isValidGame} />
+        <DeleteSavedGameDialog gameId={gameId} show={!isValidGame}/>
       </>
   );
 }

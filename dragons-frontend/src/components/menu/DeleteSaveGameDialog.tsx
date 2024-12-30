@@ -6,7 +6,7 @@ import {removeGameId} from "../../store/savedGameSlice.ts";
 export function DeleteSavedGameDialog({gameId, show}: { gameId: GameId, show: boolean }) {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const dispatch = useAppDispatch();
-  
+
   function onDeleteGame() {
     console.log("delete saved game", gameId);
     dispatch(removeGameId(gameId));
@@ -15,7 +15,7 @@ export function DeleteSavedGameDialog({gameId, show}: { gameId: GameId, show: bo
   function onCancel() {
     dialogRef.current?.close();
   }
-  
+
   useEffect(() => {
     if (show) {
       dialogRef.current?.showModal();
