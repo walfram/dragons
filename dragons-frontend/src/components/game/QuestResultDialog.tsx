@@ -21,7 +21,7 @@ export default function QuestResultDialog({questResponse, onClose}: QuestResultD
 
   return (
       <dialog aria-modal={true} ref={ref}>
-        <div>quest result {questResponse.success}</div>
+        <div>quest result {questResponse.success.toString()}</div>
         <button onClick={() => closeDialog()}>close</button>
       </dialog>
   )

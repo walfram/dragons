@@ -18,6 +18,7 @@ export const gameInstanceSlice = createSlice({
     builder.addCase(acceptQuest.rejected, () => {});
     builder.addCase(acceptQuest.pending, () => {});
     builder.addCase(acceptQuest.fulfilled, (state, action: PayloadAction<QuestResponse>) => {
+      // TODO check QuestResponse.success first
       state.gold = action.payload.gold;
       state.highScore = action.payload.highScore;
       state.lives = action.payload.lives;

@@ -1,18 +1,33 @@
-import {useEffect, useState} from "react";
-import {Quest} from "../../etc/types.ts";
+import {GameId, Quest} from "../../etc/types.ts";
 import QuestCard from "./QuestCard.tsx";
+import {useEffect, useState} from "react";
 import {useGameId} from "../../etc/hooks.ts";
 
-export default function QuestList() {
-  const gameId = useGameId();
-
+function useQuests(gameId: GameId | null): Quest[] {
   const [quests, setQuests] = useState<Quest[]>([]);
 
   useEffect(() => {
     fetch(`https://dragonsofmugloar.com/api/v2/${gameId?.gameId}/messages`)
     .then(response => response.json())
     .then(data => setQuests(data as Quest[]));
-  }, [gameId]);
+  });
+
+  return quests;
+}
+
+export default function QuestList() {
+  const gameId = useGameId();
+
+  // const dispatch = useAppDispatch();
+  // const [quests, setQuests] = useState<Quest[]>([]);
+
+  // useEffect(() => {
+  //   fetch(`https://dragonsofmugloar.com/api/v2/${gameId?.gameId}/messages`)
+  //   .then(response => response.json())
+  //   .then(data => setQuests(data as Quest[]));
+  // }, [gameId]);
+
+  const quests = useQuests(gameId);
 
   return (
       <section>
