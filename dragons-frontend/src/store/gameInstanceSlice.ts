@@ -25,14 +25,9 @@ export const gameInstanceSlice = createSlice({
     });
 
     builder.addCase(acceptQuest.fulfilled, (state, action: PayloadAction<QuestResponse>) => {
-      if (action.payload.success) {
-        state.gameState = {
-          ...state.gameState,
-          ...action.payload
-        }
-
-      } else {
-        console.error("accept quest success=false");
+      state.gameState = {
+        ...state.gameState,
+        ...action.payload
       }
     });
 
@@ -59,6 +54,7 @@ function gameIdFromUrl() {
 export const fetchQuests = createAsyncThunk(
     "fetchQuests",
     async (gameId: string) => fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
+    // TODO might return 410:Gone and response body {status: "Game Over"} -- handle this 
     .then(response => response.json())
     .then(data => data as Quest[])
 );
