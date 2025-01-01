@@ -7,6 +7,10 @@ export type GameState = {
   turn: number;
 };
 
+export type GameStartResponse = GameState & {
+  gameId: string;
+}
+
 export type GameInstance = {
   gameId: string | null;
   gameState: GameState;

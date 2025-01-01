@@ -4,7 +4,8 @@ import {fetchQuests} from "../../store/gameInstanceSlice.ts";
 
 export default function QuestList() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
-  const quests = useAppSelector(state => state.gameInstance.quests);
+  const quests = [...useAppSelector(state => state.gameInstance.quests)];
+  console.log("quests", quests);
   const dispatch = useAppDispatch();
 
   function onRefreshQuestsClick() {

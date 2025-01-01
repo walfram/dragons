@@ -1,4 +1,3 @@
-import {GameInstance} from "../../etc/types.ts";
 import {useAppDispatch} from "../../store/store.ts";
 import {fetchQuests, startGame} from "../../store/gameInstanceSlice.ts";
 
@@ -7,17 +6,13 @@ export default function NewGameButton() {
 
   function onStartNewGameClick() {
     console.log("onStartNewGameClick");
-
-    fetch("https://dragonsofmugloar.com/api/v2/game/start", {method: "post"})
-    .then(response => response.json())
-    .then(data => {
-      const instance = data as GameInstance;
-      console.log("game instance", instance);
-      window.history.replaceState(null, "", `?gameId=${instance.gameId}`);
-      dispatch(startGame(instance));
-      dispatch(fetchQuests(instance.gameId!));
+    dispatch(startGame())
+    .unwrap()
+    .then(gameStartResponse => {
+      window.history.replaceState(null, "", `?gameId=${gameStartResponse.gameId}`);
+      return gameStartResponse;
     })
-    .catch(error => console.error(error));
+    .then(gameStartResponse => dispatch(fetchQuests(gameStartResponse.gameId!)));
   }
 
   return (
