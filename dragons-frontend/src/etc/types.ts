@@ -53,7 +53,7 @@ export type ProductId = {
 }
 
 export type PurchaseResponse = {
-  shoppingSuccess: boolean; 
+  shoppingSuccess: boolean;
   gold: number;
   lives: number;
   level: number;

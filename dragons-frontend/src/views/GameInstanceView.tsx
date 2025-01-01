@@ -4,12 +4,12 @@ import {useAppSelector} from "../store/store.ts";
 
 export default function GameInstanceView() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
-  
+
   return (
-    <section>
-      <h3>game instance view {gameId}</h3>
-      <GameState />
-      <QuestList />
-    </section>  
+      <section>
+        <h3>game instance view {gameId}</h3>
+        <GameState/>
+        <QuestList/>
+      </section>
   );
 }

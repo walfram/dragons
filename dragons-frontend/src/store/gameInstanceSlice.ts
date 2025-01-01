@@ -65,7 +65,7 @@ export const fetchQuests = createAsyncThunk(
 
 export const acceptQuest = createAsyncThunk(
     "acceptQuest",
-    async (questId: QuestId) => fetch(`https://dragonsofmugloar.com/api/v2/${questId.gameId}/solve/${questId.adId}`)
+    async (questId: QuestId) => fetch(`https://dragonsofmugloar.com/api/v2/${questId.gameId}/solve/${questId.adId}`, {method: "post"})
     .then(response => response.json())
     .then(data => data as QuestResponse)
 )
