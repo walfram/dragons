@@ -18,5 +18,5 @@ export const spinnerSlice = createSlice({
   }
 });
 
-export const isSpinnerVisible = (state: RootState) => state.spinnerSlice.visible;
+export const isSpinnerVisible = (state: RootState) => state.spinner.visible;
 export const {showSpinner, hideSpinner} = spinnerSlice.actions;

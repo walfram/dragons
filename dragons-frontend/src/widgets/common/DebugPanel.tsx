@@ -1,14 +1,9 @@
-import {endGame, isGameStarted} from "../store/gameStatusSlice.ts";
-import {useAppDispatch, useAppSelector} from "../store/store.ts";
-import {GameId} from "../etc/types.ts";
+import {useAppDispatch} from "../../store/store.ts";
 import {useState} from "react";
-import {hideSpinner, showSpinner} from "../store/spinnerSlice.ts";
+import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 
 export default function DebugPanel() {
   const dispatch = useAppDispatch();
-
-  const gameStarted = useAppSelector(isGameStarted);
-  const gameIds: GameId[] = useAppSelector(state => state.savedGameSlice.gameIds);
 
   const [serverCheckStatus, setServerCheckStatus] = useState<string>("not checked");
 
@@ -28,21 +23,20 @@ export default function DebugPanel() {
     .finally(() => dispatch(hideSpinner()));
   }
   
-  function endCurrentGame() {
-    dispatch(endGame());
+  function resetGame() {
+    console.log("resetting game");
+    window.location.href = "/";
   }
-
+  
   return (
       <section className={"debug-panel"}>
-        <div>saved games {gameIds.map(gid => gid.gameId).join(",")}</div>
-        <div>current game state started={gameStarted.toString()}</div>
         <div>
           <button onClick={() => checkServer()}>check server</button>
           {serverCheckStatus}
         </div>
-        {gameStarted && <div>
-          <button onClick={() => endCurrentGame()}>end current game</button>
-        </div>}
+        <div>
+          <button onClick={() => resetGame()}>reset game</button>
+        </div>
       </section>
   );
 }

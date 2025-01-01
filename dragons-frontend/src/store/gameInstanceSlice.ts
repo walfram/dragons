@@ -1,53 +1,64 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {GameState, ProductId, PurchaseResponse, QuestId, QuestResponse} from "../etc/types.ts";
+import {GameInstance, Quest, QuestId, QuestResponse} from "../etc/types.ts";
 
-const initialGameInstance: GameState = {
-  gold: 0,
-  highScore: 0,
-  level: 0,
-  lives: 0,
-  score: 0,
-  turn: 0
+const initialGameInstance: GameInstance = {
+  gameId: gameIdFromUrl(),
+  gameState: {
+    gold: 0,
+    highScore: 0,
+    level: 0,
+    lives: 0,
+    score: 0,
+    turn: 0
+  },
+  quests: []
 }
 
 export const gameInstanceSlice = createSlice({
-  name: "gameStateSlice",
+  name: "gameInstanceSlice",
   initialState: initialGameInstance,
-  reducers: {},
+  reducers: {
+    startGame: (_state, action: PayloadAction<GameInstance>) => {
+      return {...action.payload}
+    }
+  },
   extraReducers: builder => {
-    builder.addCase(acceptQuest.rejected, () => {});
-    builder.addCase(acceptQuest.pending, () => {});
     builder.addCase(acceptQuest.fulfilled, (state, action: PayloadAction<QuestResponse>) => {
-      // TODO check QuestResponse.success first
-      state.gold = action.payload.gold;
-      state.highScore = action.payload.highScore;
-      state.lives = action.payload.lives;
-      state.score = action.payload.score;
-      state.turn = action.payload.turn;
-      // state.level is updated on shop item purchase
+      if (action.payload.success) {
+        state.gameState = {
+          ...state.gameState,
+          ...action.payload
+        }
+      }
     });
 
-    builder.addCase(purchaseItem.rejected, () => {});
-    builder.addCase(purchaseItem.pending, () => {});
-    builder.addCase(purchaseItem.fulfilled, (state, action: PayloadAction<PurchaseResponse>) => {
-      state.turn = action.payload.turn;
-      state.lives = action.payload.lives;
-      state.gold = action.payload.gold;
-      state.level = action.payload.level;
+    builder.addCase(fetchQuests.fulfilled, (state, action: PayloadAction<Quest[]>) => {
+      state.quests = action.payload;
     });
   }
 });
 
-export const purchaseItem = createAsyncThunk(
-    "purchaseItem",
-    async (itemId: ProductId) => fetch(`https://dragonsofmugloar.com/api/v2/${itemId.gameId.gameId}/shop/buy/${itemId.itemId}`, {method: "post"})
+export const {
+  startGame
+} = gameInstanceSlice.actions;
+
+function gameIdFromUrl() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const gameId = searchParams.get("gameId");
+  console.log("### gameId", gameId);
+  return gameId;
+}
+
+export const fetchQuests = createAsyncThunk(
+    "fetchQuests",
+    async (gameId: string) => fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/messages`)
     .then(response => response.json())
-    .then(data => data as PurchaseResponse)
+    .then(data => data as Quest[])
 );
 
 export const acceptQuest = createAsyncThunk(
     "acceptQuest",
-    async (questId: QuestId) => fetch(`https://dragonsofmugloar.com/api/v2/${questId.gameId.gameId}/solve/${questId.adId}`, {method: "post"})
+    async (questId: QuestId) => fetch(`https://dragonsofmugloar.com/api/v2/${questId.gameId}/solve/${questId.adId}`)
     .then(response => response.json())
     .then(data => data as QuestResponse)
-);
+)

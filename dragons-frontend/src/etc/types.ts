@@ -7,11 +7,11 @@ export type GameState = {
   turn: number;
 };
 
-export type GameId = {
-  gameId: string;
+export type GameInstance = {
+  gameId: string | null;
+  gameState: GameState;
+  quests: Quest[];
 }
-
-export type StartGameResponse = GameId & GameState;
 
 export type Quest = {
   adId: string;
@@ -33,7 +33,7 @@ export type QuestResponse = {
 }
 
 export type QuestId = {
-  gameId: GameId;
+  gameId: string;
   adId: string;
 }
 
@@ -44,12 +44,11 @@ export type Product = {
 }
 
 export type ProductId = {
-  gameId: GameId;
+  gameId: string;
   itemId: string;
 }
 
 export type PurchaseResponse = {
-  // TODO this is string in docs, should report to docs team
   shoppingSuccess: boolean; 
   gold: number;
   lives: number;

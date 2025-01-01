@@ -1,23 +1,23 @@
-import DebugPanel from "./components/DebugPanel.tsx";
+import DebugPanel from "./widgets/common/DebugPanel.tsx";
+import Spinner from "./widgets/common/Spinner.tsx";
+import GameInstanceView from "./views/GameInstanceView.tsx";
+import SelectGameView from "./views/SelectGameView.tsx";
 import {useAppSelector} from "./store/store.ts";
-import {isGameStarted} from "./store/gameStatusSlice.ts";
-import SelectGameView from "./components/menu/SelectGameView.tsx";
-import GameMainView from "./components/game/GameMainView.tsx";
-import Spinner from "./components/Spinner.tsx";
 
 export default function App() {
   console.log("rendering app");
 
-  const gameStarted = useAppSelector(isGameStarted);
+  const gameId = useAppSelector(state => state.gameInstance.gameId);
+  console.log("using game id", gameId);
   
   return (
       <>
-        <DebugPanel />
+        <DebugPanel/>
 
-        {!gameStarted && <SelectGameView />}
-        {gameStarted && <GameMainView />}
-        
-        <Spinner />
+        {gameId && <GameInstanceView/>}
+        {!gameId && <SelectGameView/>}
+
+        <Spinner/>
       </>
   );
 }
