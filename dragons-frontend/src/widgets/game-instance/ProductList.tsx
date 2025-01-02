@@ -26,7 +26,7 @@ export default function ProductList() {
   }, [gameId]);
 
   return (
-      <section>
+      <section className={"product-list"}>
         <h5>Shop <button onClick={() => onRefreshShopClick()}>refresh</button></h5>
         {loading && <div>loading</div>}
         {!loading && products.map(product => <ProductCard key={`product-${product.id}`} product={product}/>)}

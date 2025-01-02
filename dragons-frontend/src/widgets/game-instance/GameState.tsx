@@ -5,7 +5,7 @@ export default function GameState() {
   console.log("gameState", gameState);
 
   return (
-      <section>
+      <section className={"game-state"}>
         <h5>game state</h5>
         <div>turn: {gameState.turn}</div>
         <div>lives: {gameState.lives}</div>

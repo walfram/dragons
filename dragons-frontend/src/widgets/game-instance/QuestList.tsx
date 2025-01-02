@@ -13,7 +13,7 @@ export default function QuestList() {
   }
 
   return (
-      <section>
+      <section className={"quest-list"}>
         <h5>quests <button onClick={() => onRefreshQuestsClick()}>refresh</button></h5>
         {quests.sort((l, r) => Number(l.reward) - Number(r.reward))
         .map(quest => <QuestCard key={`quest-card-${quest.adId}`} quest={quest}/>)}

@@ -14,7 +14,7 @@ export default function ProductCard({product}: ProductCardProps) {
   }
 
   return (
-      <div>
+      <div className={"product-card"}>
         <div>{product.name}</div>
         <div>{product.cost}</div>
         <button onClick={() => onBuyClick()}>view</button>

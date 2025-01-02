@@ -7,11 +7,17 @@ export default function GameInstanceView() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
 
   return (
-      <section>
-        <h3>game instance view {gameId}</h3>
-        <GameState/>
-        <QuestList/>
-        <ProductList />
-      </section>
+      <div className={"content-wrap"}>
+        <header>
+          <h3>game instance view {gameId}</h3>
+          <GameState/>
+        </header>
+        <main>
+          <QuestList/>
+        </main>
+        <aside>
+          <ProductList/>
+        </aside>
+      </div>
   );
 }
