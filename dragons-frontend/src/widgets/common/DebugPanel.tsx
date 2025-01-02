@@ -29,7 +29,7 @@ export default function DebugPanel() {
   }
   
   return (
-      <section className={"debug-panel"}>
+      <section className={"debug-panel boxed"}>
         <div>
           <button onClick={() => checkServer()}>check server</button>
           {serverCheckStatus}

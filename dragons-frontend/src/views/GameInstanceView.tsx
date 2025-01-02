@@ -9,17 +9,17 @@ export default function GameInstanceView() {
 
   return (
       <div className={"content-wrap"}>
-        <header>
+        <header className={"boxed"}>
           <h3>game instance view {gameId}</h3>
           <GameState/>
         </header>
-        <main>
+        <main className={"boxed"}>
           <QuestList/>
         </main>
-        <aside>
+        <aside className={"boxed"}>
           <ProductList/>
         </aside>
-        <footer>
+        <footer className={"boxed"}>
           <PlayerReputation />
         </footer>
       </div>

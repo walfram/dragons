@@ -2,7 +2,7 @@ import NewGameButton from "../widgets/select-game/NewGameButton.tsx";
 
 export default function SelectGameView() {
   return (
-    <section>
+    <section className={"boxed mr ml"}>
       <h5>select game view</h5>
       
       <div>
