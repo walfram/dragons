@@ -8,13 +8,13 @@ export default function ProductList() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
 
   const [loading, setLoading] = useState<boolean>(true);
-  
+
   function onRefreshShopClick() {
-    setLoading(true);
     fetchProducts(gameId!);
   }
 
   function fetchProducts(gameId: string) {
+    setLoading(true);
     fetch(`https://dragonsofmugloar.com/api/v2/${gameId}/shop`)
     .then(response => response.json())
     .then(data => setProducts(data as Product[]))
@@ -22,7 +22,6 @@ export default function ProductList() {
   }
 
   useEffect(() => {
-    setLoading(true);
     fetchProducts(gameId!)
   }, [gameId]);
 
