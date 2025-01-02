@@ -57,21 +57,27 @@ body {
 }
 
 .quest-list {
-}
-
-.quest-card {
   display: flex;
   flex-wrap: wrap;
+  row-gap: 1rem;
   column-gap: 1rem;
-  margin-bottom: 1rem;
+  align-items: stretch;
 }
 
-.quest-card .quest-message {
+.quest-list h5 {
   flex: 1 0 100%;
 }
 
-.quest-card :not(.quest-message) {
-  flex: 0 0 auto;
+.quest-card {
+  flex: 1 1 33%;
+  display: flex;
+}
+
+.quest-card button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 0 auto;
 }
 
 .product-list {
@@ -112,9 +118,10 @@ body {
   outline: none;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid tomato;
-  font-size: 1.5rem;
+  /*font-size: 1.5rem;*/
   color: tomato;
-  display: block;
-  text-align: center;
-  cursor: pointer;
+  /*display: block;*/
+  /*width: 100%;*/
+  text-align: left;
+  /*cursor: pointer;*/
 }

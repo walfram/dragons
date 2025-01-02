@@ -40,9 +40,11 @@ export default function QuestCard({quest}: QuestCardProps) {
   // TODO handle quest.encrypted
   return (
       <div className={"quest-card"}>
-        <div className={"quest-message"}>{quest.probability}: {quest.message}</div>
-        <div>{quest.reward}</div>
-        <button onClick={() => setQuestDetailsDialog(true)}>view</button>
+        <button onClick={() => setQuestDetailsDialog(true)} className={"task-button"}>
+          {quest.probability}: {quest.message}
+        </button>
+        {/*<div>{quest.reward}</div>*/}
+        {/*<button onClick={() => setQuestDetailsDialog(true)}>view</button>*/}
         {questDetailsDialog && <QuestDetailsDialog
             quest={quest}
             onCancelQuest={() => setQuestDetailsDialog(false)}
