@@ -1,5 +1,5 @@
 import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
-import {GameInstance, GameStartResponse, Quest, QuestId, QuestResponse} from "../etc/types.ts";
+import {GameInstance, GameStartResponse, ProductId, PurchaseResponse, Quest, QuestId, QuestResponse} from "../etc/types.ts";
 
 const initialGameInstance: GameInstance = {
   gameId: gameIdFromUrl(),
@@ -34,6 +34,13 @@ export const gameInstanceSlice = createSlice({
     builder.addCase(fetchQuests.fulfilled, (state, action: PayloadAction<Quest[]>) => {
       state.quests = action.payload;
     });
+    
+    builder.addCase(purchaseItem.fulfilled, (state, action: PayloadAction<PurchaseResponse>) => {
+      state.gameState.gold = action.payload.gold;
+      state.gameState.level = action.payload.level;
+      state.gameState.lives = action.payload.lives;
+      state.gameState.turn = action.payload.turn;
+    });
   }
 });
 
@@ -64,4 +71,11 @@ export const acceptQuest = createAsyncThunk(
     async (questId: QuestId) => fetch(`https://dragonsofmugloar.com/api/v2/${questId.gameId}/solve/${questId.adId}`, {method: "post"})
     .then(response => response.json())
     .then(data => data as QuestResponse)
+)
+
+export const purchaseItem = createAsyncThunk(
+    "purchaseItem",
+    async (productId: ProductId) => fetch(`https://dragonsofmugloar.com/api/v2/${productId.gameId}/shop/buy/${productId.itemId}`, {method: "post"})
+    .then(response => response.json())
+    .then(data => data as PurchaseResponse)
 )

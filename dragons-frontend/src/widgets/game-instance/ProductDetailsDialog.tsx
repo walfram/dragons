@@ -3,23 +3,21 @@ import {useEffect, useRef} from "react";
 
 type ProductDetailsDialogProps = {
   product: Product;
-  onClose: () => void;
+  onAccept: () => void;
+  onCancel: () => void;
 }
 
-export default function ProductDetailsDialog({product, onClose}: ProductDetailsDialogProps) {
+export default function ProductDetailsDialog({product, onAccept, onCancel}: ProductDetailsDialogProps) {
   const dialogRef = useRef<HTMLDialogElement>(null);
-
+  
   function onCancelBuyClick() {
     dialogRef.current?.close();
-    onClose();
+    onCancel();
   }
 
   function onConfirmBuyClick() {
-    // show spinner
-    // dispatch buy item
-    // dispatch refresh products?
     dialogRef.current?.close();
-    onClose();
+    onAccept();
   }
 
   useEffect(() => {
