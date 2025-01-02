@@ -24,6 +24,10 @@
   flex-grow: 1;
 }
 
+.content-wrap footer {
+  flex: 1 0 100%;
+}
+
 .game-state {
   display: flex;
   flex-wrap: wrap;
@@ -67,4 +71,15 @@
 }
 .product-card div {
   flex: 0;
+}
+
+.reputation {
+  display: flex;
+  flex-wrap: wrap;
+}
+.reputation h5 {
+  flex: 1 0 100%;
+}
+.reputation div {
+  flex: 1;
 }
