@@ -45,15 +45,15 @@ body {
 .game-state {
   display: flex;
   flex-wrap: wrap;
-  background-color: lightgray;
+  column-gap: 1rem;
+  row-gap: 1rem;
 }
 
-.game-state h5 {
+.game-state h4 {
   flex: 1 0 100%;
 }
 
 .game-state div {
-  flex: 1;
 }
 
 .quest-list {
