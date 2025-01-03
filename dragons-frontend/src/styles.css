@@ -57,12 +57,8 @@ body {
   outline: none;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid tomato;
-  /*font-size: 1.5rem;*/
   color: tomato;
-  /*display: block;*/
-  /*width: 100%;*/
   text-align: left;
-  /*cursor: pointer;*/
 }
 
 dialog {
