@@ -64,3 +64,17 @@ body {
   text-align: left;
   /*cursor: pointer;*/
 }
+
+dialog {
+  margin: auto;
+  padding: 2rem;
+  width: min(640px, 33%) !important;
+}
+
+dialog h5 {
+}
+
+dialog button {
+  display: inline-block !important;
+  width: auto !important;
+}
