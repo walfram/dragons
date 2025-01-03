@@ -1,6 +1,7 @@
 import {useAppDispatch, useAppSelector} from "../../store/store.ts";
 import QuestCard from "./QuestCard.tsx";
 import {fetchQuests} from "../../store/gameInstanceSlice.ts";
+import styles from "./QuestList.module.css";
 
 export default function QuestList() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
@@ -13,7 +14,7 @@ export default function QuestList() {
   }
 
   return (
-      <section className={"quest-list"}>
+      <section className={styles["quest-list"]}>
         <h5>quests <button onClick={() => onRefreshQuestsClick()}>refresh</button></h5>
         {quests.sort((l, r) => Number(l.reward) - Number(r.reward))
         .map(quest => <QuestCard key={`quest-card-${quest.adId}`} quest={quest}/>)}

@@ -5,6 +5,7 @@ import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 import {useAppDispatch, useAppSelector} from "../../store/store.ts";
 import {purchaseItem} from "../../store/gameInstanceSlice.ts";
 import PurchaseResponseDialog from "./PurchaseResponseDialog.tsx";
+import styles from "./ProductList.module.css";
 
 type ProductCardProps = {
   product: Product;
@@ -39,10 +40,10 @@ export default function ProductCard({product}: ProductCardProps) {
   }
 
   return (
-      <div className={"product-card"}>
+      <div className={styles["product-card"]}>
         <button onClick={() => onViewClick()} className={"task-button"}>
-          <span className={"product-name"}>{product.name}</span>
-          <span className={"product-price"}>{product.cost}</span>
+          <span className={styles["product-name"]}>{product.name}</span>
+          <span className={styles["product-price"]}>{product.cost}</span>
         </button>
 
         {productPopup && <ProductDetailsDialog

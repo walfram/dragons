@@ -5,6 +5,7 @@ import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 import {useState} from "react";
 import QuestResponseDialog from "./QuestResponseDialog.tsx";
 import QuestDetailsDialog from "./QuestDetailsDialog.tsx";
+import styles from "./QuestList.module.css";
 
 type QuestCardProps = {
   quest: Quest;
@@ -39,7 +40,7 @@ export default function QuestCard({quest}: QuestCardProps) {
 
   // TODO handle quest.encrypted
   return (
-      <div className={"quest-card"}>
+      <div className={styles["quest-card"]}>
         <button onClick={() => setQuestDetailsDialog(true)} className={"task-button"}>
           {quest.probability}: {quest.message}
         </button>

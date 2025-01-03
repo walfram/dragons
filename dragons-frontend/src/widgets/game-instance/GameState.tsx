@@ -1,4 +1,5 @@
 import {useAppSelector} from "../../store/store.ts";
+import styles from "./GameState.module.css";
 
 export default function GameState() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
@@ -6,7 +7,7 @@ export default function GameState() {
   console.log("gameState", gameState);
 
   return (
-      <section className={"game-state"}>
+      <section className={styles["game-state"]}>
         <h4>game id {gameId}</h4>
         <div>turn: {gameState.turn}</div>
         <div>lives: {gameState.lives}</div>

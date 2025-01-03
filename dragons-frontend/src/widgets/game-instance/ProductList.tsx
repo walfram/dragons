@@ -2,6 +2,7 @@ import {useAppSelector} from "../../store/store.ts";
 import {Product} from "../../etc/types.ts";
 import {useEffect, useState} from "react";
 import ProductCard from "./ProductCard.tsx";
+import styles from "./ProductList.module.css";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,7 +27,7 @@ export default function ProductList() {
   }, [gameId]);
 
   return (
-      <section className={"product-list"}>
+      <section className={styles["product-list"]}>
         <h5>Shop <button onClick={() => onRefreshShopClick()}>refresh</button></h5>
         {loading && <div>loading</div>}
         {!loading && products.map(product => <ProductCard key={`product-${product.id}`} product={product}/>)}

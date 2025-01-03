@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useAppSelector} from "../../store/store.ts";
 import {Reputation} from "../../etc/types.ts";
+import styles from "./PlayerReputation.module.css";
 
 export default function PlayerReputation() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
@@ -15,7 +16,7 @@ export default function PlayerReputation() {
   }, [gameId, turn]);
 
   return (
-      <section className={"reputation"}>
+      <section className={styles["reputation"]}>
         <h4>Reputation</h4>
         <div>people: {reputation.people}</div>
         <div>state: {reputation.state}</div>

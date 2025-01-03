@@ -1,0 +1,23 @@
+.quest-list {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  align-items: stretch;
+}
+
+.quest-list h5 {
+  flex: 1 0 100%;
+}
+
+.quest-card {
+  flex: 1 1 33%;
+  display: flex;
+}
+
+.quest-card button {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 0 auto;
+}
