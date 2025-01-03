@@ -41,11 +41,9 @@ export default function QuestCard({quest}: QuestCardProps) {
   // TODO handle quest.encrypted
   return (
       <div className={styles["quest-card"]}>
-        <button onClick={() => setQuestDetailsDialog(true)} className={"task-button"}>
-          {quest.probability}: {quest.message}
+        <button onClick={() => setQuestDetailsDialog(true)} className={styles["task-button"]}>
+          <span className={styles[probabilityToClassName(quest.probability)]}>{quest.probability}</span>: {quest.message}
         </button>
-        {/*<div>{quest.reward}</div>*/}
-        {/*<button onClick={() => setQuestDetailsDialog(true)}>view</button>*/}
         {questDetailsDialog && <QuestDetailsDialog
             quest={quest}
             onCancelQuest={() => setQuestDetailsDialog(false)}
@@ -57,4 +55,8 @@ export default function QuestCard({quest}: QuestCardProps) {
         }
       </div>
   );
+}
+
+function probabilityToClassName(probability: string) {
+  return probability.toLowerCase().replace(/ /g, "-").replace(/\./g, "");
 }

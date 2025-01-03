@@ -16,8 +16,47 @@
 }
 
 .quest-card button {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  flex: 1 0 auto;
+  padding: 10px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid tomato;
+  color: tomato;
+  text-align: left;
 }
+
+/*.task-button {*/
+/*  padding: 10px;*/
+/*  outline: none;*/
+/*  background-color: rgba(0, 0, 0, 0);*/
+/*  border: 2px solid tomato;*/
+/*  color: tomato;*/
+/*  text-align: left;*/
+/*}*/
+
+.quest-card .piece-of-cake::before {
+  content: "\1F606";
+}
+.quest-card .quite-likely::before {
+  content: "\1F600";
+}
+.quest-card .sure-thing::before {
+  content: "\1F60E";
+}
+.quest-card .walk-in-the-park::before {
+  content: "\1F60F";
+}
+.quest-card .gamble::before {
+  content: "\1F622";
+}
+.quest-card .hmmm::before {
+  content: "\1F61F";
+}
+.quest-card .risky::before {
+  content: "\1F62E";
+}
+.quest-card .suicide-mission::before {
+  content: "\1F621";
+}
+
+
+

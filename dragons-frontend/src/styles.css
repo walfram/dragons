@@ -52,14 +52,6 @@ body {
   /*margin: 60px auto 20px auto;*/
   /*width: 100%;*/
 }
-.task-button {
-  padding: 10px;
-  outline: none;
-  background-color: rgba(0, 0, 0, 0);
-  border: 2px solid tomato;
-  color: tomato;
-  text-align: left;
-}
 
 dialog {
   margin: auto;
