@@ -40,9 +40,10 @@ export default function ProductCard({product}: ProductCardProps) {
 
   return (
       <div className={"product-card"}>
-        <div>{product.name}</div>
-        <div>{product.cost}</div>
-        <button onClick={() => onViewClick()}>view</button>
+        <button onClick={() => onViewClick()} className={"task-button"}>
+          <span className={"product-name"}>{product.name}</span>
+          <span className={"product-price"}>{product.cost}</span>
+        </button>
 
         {productPopup && <ProductDetailsDialog
             product={product}
@@ -50,8 +51,8 @@ export default function ProductCard({product}: ProductCardProps) {
             onAccept={() => buyProduct()}/>
         }
 
-        {purchaseResponse && <PurchaseResponseDialog 
-            purchaseResponse={purchaseResponse} 
+        {purchaseResponse && <PurchaseResponseDialog
+            purchaseResponse={purchaseResponse}
             onClose={() => onPurchaseResponseClose()}/>
         }
       </div>
