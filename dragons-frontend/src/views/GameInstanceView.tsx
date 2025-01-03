@@ -8,6 +8,7 @@ export default function GameInstanceView() {
       <div className={"content-wrap"}>
         <header className={"boxed"}>
           <GameState/>
+          <PlayerReputation />
         </header>
         <main className={"boxed"}>
           <QuestList/>
@@ -16,7 +17,7 @@ export default function GameInstanceView() {
           <ProductList/>
         </aside>
         <footer className={"boxed"}>
-          <PlayerReputation />
+          Scripting Adventure: Dragons of Mugloar
         </footer>
       </div>
   );

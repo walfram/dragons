@@ -16,7 +16,7 @@ export default function PlayerReputation() {
 
   return (
       <section className={"reputation"}>
-        <h5>Reputation</h5>
+        <h4>Reputation</h4>
         <div>people: {reputation.people}</div>
         <div>state: {reputation.state}</div>
         <div>underworld: {reputation.underworld}</div>
