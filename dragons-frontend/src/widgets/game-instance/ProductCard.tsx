@@ -41,7 +41,7 @@ export default function ProductCard({product}: ProductCardProps) {
 
   return (
       <div className={styles["product-card"]}>
-        <button onClick={() => onViewClick()} className={"task-button"}>
+        <button onClick={() => onViewClick()} className={styles["task-button"]}>
           <span className={styles["product-name"]}>{product.name}</span>
           <span className={styles["product-price"]}>{product.cost}</span>
         </button>

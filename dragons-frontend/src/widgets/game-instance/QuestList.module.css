@@ -62,9 +62,11 @@
 .quest-card .suicide-mission::before {
   content: "\1F621";
 }
-
 .quest-card .rather-detrimental::before {
   content: "\1F615";
+}
+.quest-card .playing-with-fire::before {
+  content: "\1F616";
 }
 
 

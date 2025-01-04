@@ -29,3 +29,12 @@
 .product-card span.product-price {
   text-align: right;
 }
+
+.product-card .task-button {
+  padding: 10px;
+  outline: none;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid orangered;
+  color: orangered;
+  text-align: left;
+}
