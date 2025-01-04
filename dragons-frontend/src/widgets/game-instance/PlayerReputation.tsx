@@ -18,9 +18,9 @@ export default function PlayerReputation() {
   return (
       <section className={styles["reputation"]}>
         <h4>Reputation</h4>
-        <div>people: {reputation.people}</div>
-        <div>state: {reputation.state}</div>
-        <div>underworld: {reputation.underworld}</div>
+        <div>people: {reputation.people.toFixed(1)}</div>
+        <div>state: {reputation.state.toFixed(1)}</div>
+        <div>underworld: {reputation.underworld.toFixed(1)}</div>
       </section>
   )
 }

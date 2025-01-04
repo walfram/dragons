@@ -3,7 +3,7 @@ import {useState} from "react";
 import ProductDetailsDialog from "./ProductDetailsDialog.tsx";
 import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {purchaseItem} from "../../store/gameInstanceSlice.ts";
+import {fetchQuests, purchaseItem} from "../../store/gameInstanceSlice.ts";
 import PurchaseResponseDialog from "./PurchaseResponseDialog.tsx";
 import styles from "./ProductList.module.css";
 
@@ -31,12 +31,14 @@ export default function ProductCard({product}: ProductCardProps) {
       setProductPopup(false);
       setPurchaseResponse(purchaseResponse);
     })
-    .finally(() => dispatch(hideSpinner()))
+    .finally(() => {
+      dispatch(hideSpinner())
+      dispatch(fetchQuests(gameId!));
+    })
   }
   
   function onPurchaseResponseClose() {
     setPurchaseResponse(null);
-    // TODO dispatch fetch products???
   }
 
   return (

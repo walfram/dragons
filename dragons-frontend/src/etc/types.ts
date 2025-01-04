@@ -22,7 +22,7 @@ export type Quest = {
   message: string;
   reward: string;
   expiresIn: number;
-  encrypted: string;
+  encrypted: number;
   probability: string;
 }
 

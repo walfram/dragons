@@ -37,12 +37,14 @@ export default function QuestCard({quest}: QuestCardProps) {
     setQuestResponse(null);
     dispatch(fetchQuests(gameId!));
   }
+  
+  const probability = questProbability(quest);
+  const message = questMessage(quest);
 
-  // TODO handle quest.encrypted
   return (
       <div className={styles["quest-card"]}>
-        <button onClick={() => setQuestDetailsDialog(true)} className={styles["task-button"]}>
-          <span className={styles[probabilityToClassName(quest.probability)]}>{quest.probability}</span>: {quest.message}
+        <button onClick={() => setQuestDetailsDialog(true)} className={`${styles["task-button"]} ${quest.encrypted ? styles["encrypted"] : ""}`}>
+          <span className={styles[probabilityToClassName(probability)]}>{probability}</span>: {message}
         </button>
         {questDetailsDialog && <QuestDetailsDialog
             quest={quest}
@@ -55,6 +57,28 @@ export default function QuestCard({quest}: QuestCardProps) {
         }
       </div>
   );
+}
+
+function questMessage(quest: Quest) {
+  switch(quest.encrypted) {
+    case 1: return atob(quest.message);
+    case 2: return rot13(quest.message);
+    default: return quest.message;
+  }
+}
+
+function questProbability(quest: Quest) {
+  switch (quest.encrypted) {
+    case 1 : return atob(quest.probability);
+    case 2 : return rot13(quest.probability);
+    default: return quest.probability;
+  }
+}
+
+function rot13(str: string) {
+  return str.split("")
+  .map(char => String.fromCharCode(char.charCodeAt(0) + (char.toLowerCase() < "n" ? 13 : -13)))
+  .join("");
 }
 
 function probabilityToClassName(probability: string) {

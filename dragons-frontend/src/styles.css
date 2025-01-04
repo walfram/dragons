@@ -63,6 +63,8 @@ dialog h5 {
 }
 
 dialog button {
-  display: inline-block !important;
-  width: auto !important;
+  /*display: inline-block !important;*/
+  /*width: auto !important;*/
+  /*border: none;*/
+  /*padding: 0;*/
 }

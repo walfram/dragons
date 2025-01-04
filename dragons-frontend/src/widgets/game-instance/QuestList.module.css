@@ -15,13 +15,17 @@
   display: flex;
 }
 
-.quest-card button {
+.quest-card button.task-button {
   padding: 10px;
   outline: none;
   background-color: rgba(0, 0, 0, 0);
   border: 2px solid tomato;
   color: tomato;
   text-align: left;
+}
+
+.quest-card .encrypted {
+  border-style: dashed !important;
 }
 
 .quest-card span::before {
