@@ -15,6 +15,7 @@ export type GameInstance = {
   gameId: string | null;
   gameState: GameState;
   quests: Quest[];
+  gameOver: boolean;
 }
 
 export type Quest = {

@@ -11,17 +11,23 @@ const initialGameInstance: GameInstance = {
     score: 0,
     turn: 0
   },
-  quests: []
+  quests: [],
+  gameOver: false
 }
 
 export const gameInstanceSlice = createSlice({
   name: "gameInstanceSlice",
   initialState: initialGameInstance,
-  reducers: {},
+  reducers: {
+    gameOver: (state) => {
+      state.gameOver = true;
+    }
+  },
   extraReducers: builder => {
     builder.addCase(startGame.fulfilled, (state, action: PayloadAction<GameStartResponse>) => {
       state.gameId = action.payload.gameId;
       state.gameState = {...action.payload};
+      state.gameOver = false;
     });
 
     builder.addCase(acceptQuest.fulfilled, (state, action: PayloadAction<QuestResponse>) => {
@@ -43,6 +49,10 @@ export const gameInstanceSlice = createSlice({
     });
   }
 });
+
+export const {
+  gameOver
+} = gameInstanceSlice.actions;
 
 export const startGame = createAsyncThunk(
     "startGame",
