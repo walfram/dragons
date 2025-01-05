@@ -12,7 +12,7 @@ export function decodeProbability(quest: Quest) {
   switch (quest.encrypted) {
     case 1 : return atob(quest.probability);
     case 2 : return rot13(quest.probability);
-    default: return quest.adId;
+    default: return quest.probability;
   }
 }
 
@@ -20,7 +20,7 @@ export function decodeQuestId(quest: Quest) {
   switch (quest.encrypted) {
     case 1 : return atob(quest.adId);
     case 2 : return rot13(quest.adId);
-    default: return quest.probability;
+    default: return quest.adId;
   }
 }
 
