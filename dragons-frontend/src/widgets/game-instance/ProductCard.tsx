@@ -23,7 +23,7 @@ export default function ProductCard({product}: ProductCardProps) {
 
   function buyProduct() {
     dispatch(showSpinner());
-    
+
     dispatch(purchaseItem({gameId: gameId!, itemId: product.id}))
     .unwrap()
     .then(purchaseResponse => {
@@ -36,17 +36,19 @@ export default function ProductCard({product}: ProductCardProps) {
       dispatch(fetchQuests(gameId!));
     })
   }
-  
+
   function onPurchaseResponseClose() {
     setPurchaseResponse(null);
   }
 
   return (
-      <div className={styles["product-card"]}>
-        <button onClick={() => onViewClick()} className={styles["task-button"]}>
-          <span className={styles["product-name"]}>{product.name}</span>
-          <span className={styles["product-price"]}>{product.cost}</span>
-        </button>
+      <>
+        <div className={styles["product-card"]}>
+          <button onClick={() => onViewClick()} className={styles["task-button"]}>
+            <span className={styles["product-name"]}>{product.name}</span>
+            <span className={styles["product-price"]}>{product.cost}</span>
+          </button>
+        </div>
 
         {productPopup && <ProductDetailsDialog
             product={product}
@@ -58,6 +60,6 @@ export default function ProductCard({product}: ProductCardProps) {
             purchaseResponse={purchaseResponse}
             onClose={() => onPurchaseResponseClose()}/>
         }
-      </div>
+      </>
   );
 }

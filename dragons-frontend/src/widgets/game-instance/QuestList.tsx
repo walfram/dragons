@@ -2,15 +2,21 @@ import {useAppDispatch, useAppSelector} from "../../store/store.ts";
 import QuestCard from "./QuestCard.tsx";
 import {fetchQuests} from "../../store/gameInstanceSlice.ts";
 import styles from "./QuestList.module.css";
+import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
 
 export default function QuestList() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
   const quests = [...useAppSelector(state => state.gameInstance.quests)];
+  
   console.log("quests", quests);
   const dispatch = useAppDispatch();
 
   function onRefreshQuestsClick() {
-    dispatch(fetchQuests(gameId!));
+    dispatch(showSpinner());
+    
+    dispatch(fetchQuests(gameId!))
+    .unwrap()
+    .finally(() => dispatch(hideSpinner()));
   }
 
   return (

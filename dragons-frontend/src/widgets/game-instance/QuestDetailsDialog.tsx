@@ -1,5 +1,6 @@
 import {Quest} from "../../etc/types.ts";
-import {useEffect, useRef} from "react";
+import {decodeMessage, decodeProbability} from "../../etc/decode.ts";
+import ModalDialog from "../common/ModalDialog.tsx";
 
 type QuestDetailsDialogProps = {
   quest: Quest;
@@ -8,24 +9,17 @@ type QuestDetailsDialogProps = {
 }
 
 export default function QuestDetailsDialog({quest, onCancelQuest, onAcceptQuest}: QuestDetailsDialogProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  useEffect(() => {
-    dialogRef.current?.showModal();
-  }, []);
-  
-  function onCancelClick() {
-    dialogRef.current?.close();
-    onCancelQuest();
-  }
-  
   return (
-      <dialog aria-modal={true} ref={dialogRef}>
-        <h5>{quest.message}</h5>
+      <ModalDialog closeCallback={onCancelQuest}>
+        <h5>{decodeMessage(quest)}</h5>
+
+        <div>probability: {decodeProbability(quest)}</div>
         <div>reward: {quest.reward}</div>
-        <div>probability: {quest.probability}</div>
-        <button onClick={() => onCancelClick()}>cancel</button>
-        <button onClick={() => onAcceptQuest()}>accept</button>
-      </dialog>
+        
+        <div className={"dialog-buttons"}>
+          <button onClick={() => onCancelQuest()} className={"cancel"}>cancel</button>
+          <button onClick={() => onAcceptQuest()} className={"accept"}>accept</button>
+        </div>
+      </ModalDialog>
   )
 }

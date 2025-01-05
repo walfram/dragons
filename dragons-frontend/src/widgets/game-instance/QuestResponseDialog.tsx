@@ -1,5 +1,5 @@
 import {QuestResponse} from "../../etc/types.ts";
-import {useEffect, useRef} from "react";
+import ModalDialog from "../common/ModalDialog.tsx";
 
 type QuestResponseDialogProps = {
   questResponse: QuestResponse;
@@ -7,22 +7,14 @@ type QuestResponseDialogProps = {
 }
 
 export default function QuestResponseDialog({questResponse, onClose}: QuestResponseDialogProps) {
-  const dialogRef = useRef<HTMLDialogElement>(null);
-
-  function onCloseDialog() {
-    dialogRef.current?.close();
-    onClose();
-  }
-
-  useEffect(() => {
-    dialogRef.current?.showModal();
-  }, []);
-
   return (
-      <dialog aria-modal={true} ref={dialogRef}>
+      <ModalDialog closeCallback={onClose}>
         <h5>quest success: {questResponse.success.toString()}</h5>
         <div>{questResponse.message}</div>
-        <button onClick={() => onCloseDialog()}>close</button>
-      </dialog>
-  )
+        
+        <div className={"dialog-buttons"}>
+          <button onClick={() => onClose()} className={"close"}>close</button>
+        </div>
+      </ModalDialog>
+)
 }

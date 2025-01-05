@@ -68,3 +68,32 @@ dialog button {
   /*border: none;*/
   /*padding: 0;*/
 }
+
+dialog .dialog-close-cross {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+dialog .dialog-buttons {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.dialog-content button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; 
+}
+
+.dialog-content button.cancel {
+  background-color: orangered;
+  float: left;
+}
+
+.dialog-content button.accept {
+  background-color: darkgreen;
+  float: right;
+}
+
+.dialog-content .close {
+  
+}
