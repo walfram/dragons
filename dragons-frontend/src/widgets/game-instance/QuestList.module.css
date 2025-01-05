@@ -72,6 +72,9 @@
 .quest-card .playing-with-fire::before {
   content: "\1F616";
 }
+.quest-card .impossible::before {
+  content: "\1F631";
+}
 
 
 
