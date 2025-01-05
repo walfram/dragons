@@ -16,6 +16,14 @@ export function decodeProbability(quest: Quest) {
   }
 }
 
+export function decodeQuestId(quest: Quest) {
+  switch (quest.encrypted) {
+    case 1 : return atob(quest.adId);
+    case 2 : return rot13(quest.adId);
+    default: return quest.probability;
+  }
+}
+
 function rot13(str: string) {
   return str.split("")
   .map(char => String.fromCharCode(char.charCodeAt(0) + (char.toLowerCase() < "n" ? 13 : -13)))

@@ -10,7 +10,7 @@ type ProductDetailsDialogProps = {
 export default function ProductDetailsDialog({product, onAccept, onCancel}: ProductDetailsDialogProps) {
   return (
       <ModalDialog closeCallback={onCancel}>
-        <h5>Buy item</h5>
+        <h3>Buy item</h3>
         <div>{product.name}</div>
         <div>{product.cost}</div>
         

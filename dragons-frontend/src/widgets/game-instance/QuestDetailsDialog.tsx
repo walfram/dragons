@@ -11,7 +11,7 @@ type QuestDetailsDialogProps = {
 export default function QuestDetailsDialog({quest, onCancelQuest, onAcceptQuest}: QuestDetailsDialogProps) {
   return (
       <ModalDialog closeCallback={onCancelQuest}>
-        <h5>{decodeMessage(quest)}</h5>
+        <h3>{decodeMessage(quest)}</h3>
 
         <div>probability: {decodeProbability(quest)}</div>
         <div>reward: {quest.reward}</div>

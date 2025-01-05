@@ -85,7 +85,7 @@ dialog .dialog-buttons {
 }
 
 .dialog-content button.cancel {
-  background-color: orangered;
+  /*background-color: orangered;*/
   float: left;
 }
 

@@ -6,7 +6,7 @@ import {useState} from "react";
 import QuestResponseDialog from "./QuestResponseDialog.tsx";
 import QuestDetailsDialog from "./QuestDetailsDialog.tsx";
 import styles from "./QuestList.module.css";
-import {decodeMessage, decodeProbability} from "../../etc/decode.ts";
+import {decodeMessage, decodeProbability, decodeQuestId} from "../../etc/decode.ts";
 
 type QuestCardProps = {
   quest: Quest;
@@ -24,7 +24,7 @@ export default function QuestCard({quest}: QuestCardProps) {
 
     dispatch(showSpinner());
 
-    dispatch(acceptQuest({gameId: gameId!, adId: quest.adId}))
+    dispatch(acceptQuest({gameId: gameId!, adId: decodeQuestId(quest)}))
     .unwrap()
     .then(questResponse => {
       console.log("quest response", questResponse);

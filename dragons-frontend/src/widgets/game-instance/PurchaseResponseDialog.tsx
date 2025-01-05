@@ -9,7 +9,7 @@ type PurchaseResponseDialogProps = {
 export default function PurchaseResponseDialog({purchaseResponse, onClose}: PurchaseResponseDialogProps) {
   return (
       <ModalDialog closeCallback={onClose}>
-        <h5>buy item success: {purchaseResponse.shoppingSuccess.toString()}</h5>
+        <h3>buy item success: {purchaseResponse.shoppingSuccess.toString()}</h3>
 
         <div className={"dialog-buttons"}>
           <button className={"close"} onClick={() => onClose()}>close</button>

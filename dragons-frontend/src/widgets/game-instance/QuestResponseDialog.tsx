@@ -9,7 +9,7 @@ type QuestResponseDialogProps = {
 export default function QuestResponseDialog({questResponse, onClose}: QuestResponseDialogProps) {
   return (
       <ModalDialog closeCallback={onClose}>
-        <h5>quest success: {questResponse.success.toString()}</h5>
+        <h3>quest success: {questResponse.success.toString()}</h3>
         <div>{questResponse.message}</div>
         
         <div className={"dialog-buttons"}>
