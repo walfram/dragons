@@ -1,5 +1,5 @@
-import {PurchaseResponse} from "../../etc/types.ts";
-import ModalDialog from "../common/ModalDialog.tsx";
+import {PurchaseResponse} from "../../../etc/types.ts";
+import ModalDialog from "../../common/ModalDialog.tsx";
 
 type PurchaseResponseDialogProps = {
   purchaseResponse: PurchaseResponse;

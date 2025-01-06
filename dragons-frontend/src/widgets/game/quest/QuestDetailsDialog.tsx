@@ -1,6 +1,6 @@
-import {Quest} from "../../etc/types.ts";
-import {decodeMessage, decodeProbability} from "../../etc/decode.ts";
-import ModalDialog from "../common/ModalDialog.tsx";
+import {Quest} from "../../../etc/types.ts";
+import {decodeMessage, decodeProbability} from "../../../etc/decode.ts";
+import ModalDialog from "../../common/ModalDialog.tsx";
 
 type QuestDetailsDialogProps = {
   quest: Quest;

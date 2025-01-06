@@ -1,9 +1,9 @@
-import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {Product} from "../../etc/types.ts";
+import {useAppDispatch, useAppSelector} from "../../../store/store.ts";
+import {Product} from "../../../etc/types.ts";
 import {useCallback, useEffect, useState} from "react";
 import ProductCard from "./ProductCard.tsx";
 import styles from "./ProductList.module.css";
-import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
+import {hideSpinner, showSpinner} from "../../../store/spinnerSlice.ts";
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);

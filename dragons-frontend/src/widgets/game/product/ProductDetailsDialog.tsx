@@ -1,5 +1,5 @@
-import {Product} from "../../etc/types.ts";
-import ModalDialog from "../common/ModalDialog.tsx";
+import {Product} from "../../../etc/types.ts";
+import ModalDialog from "../../common/ModalDialog.tsx";
 
 type ProductDetailsDialogProps = {
   product: Product;

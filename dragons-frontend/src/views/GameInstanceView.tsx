@@ -1,7 +1,7 @@
-import GameState from "../widgets/game-instance/GameState.tsx";
-import QuestList from "../widgets/game-instance/QuestList.tsx";
-import ProductList from "../widgets/game-instance/ProductList.tsx";
-import PlayerReputation from "../widgets/game-instance/PlayerReputation.tsx";
+import GameState from "../widgets/game/GameState.tsx";
+import QuestList from "../widgets/game/quest/QuestList.tsx";
+import ProductList from "../widgets/game/product/ProductList.tsx";
+import PlayerReputation from "../widgets/game/PlayerReputation.tsx";
 
 export default function GameInstanceView() {
   return (

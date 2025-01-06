@@ -1,4 +1,4 @@
-import NewGameButton from "../widgets/select-game/NewGameButton.tsx";
+import NewGameButton from "../widgets/menu/NewGameButton.tsx";
 
 export default function SelectGameView() {
   return (

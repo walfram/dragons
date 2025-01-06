@@ -1,12 +1,12 @@
-import {Quest, QuestResponse} from "../../etc/types.ts";
-import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {acceptQuest, fetchQuests} from "../../store/gameInstanceSlice.ts";
-import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
+import {Quest, QuestResponse} from "../../../etc/types.ts";
+import {useAppDispatch, useAppSelector} from "../../../store/store.ts";
+import {acceptQuest, fetchQuests} from "../../../store/gameInstanceSlice.ts";
+import {hideSpinner, showSpinner} from "../../../store/spinnerSlice.ts";
 import {useState} from "react";
 import QuestResponseDialog from "./QuestResponseDialog.tsx";
 import QuestDetailsDialog from "./QuestDetailsDialog.tsx";
 import styles from "./QuestList.module.css";
-import {decodeMessage, decodeProbability, decodeQuestId} from "../../etc/decode.ts";
+import {decodeMessage, decodeProbability, decodeQuestId} from "../../../etc/decode.ts";
 
 type QuestCardProps = {
   quest: Quest;

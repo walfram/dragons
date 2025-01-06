@@ -1,5 +1,5 @@
-import {QuestResponse} from "../../etc/types.ts";
-import ModalDialog from "../common/ModalDialog.tsx";
+import {QuestResponse} from "../../../etc/types.ts";
+import ModalDialog from "../../common/ModalDialog.tsx";
 
 type QuestResponseDialogProps = {
   questResponse: QuestResponse;

@@ -1,9 +1,9 @@
-import {Product, PurchaseResponse} from "../../etc/types.ts";
+import {Product, PurchaseResponse} from "../../../etc/types.ts";
 import {useState} from "react";
 import ProductDetailsDialog from "./ProductDetailsDialog.tsx";
-import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
-import {useAppDispatch, useAppSelector} from "../../store/store.ts";
-import {fetchQuests, purchaseItem} from "../../store/gameInstanceSlice.ts";
+import {hideSpinner, showSpinner} from "../../../store/spinnerSlice.ts";
+import {useAppDispatch, useAppSelector} from "../../../store/store.ts";
+import {fetchQuests, purchaseItem} from "../../../store/gameInstanceSlice.ts";
 import PurchaseResponseDialog from "./PurchaseResponseDialog.tsx";
 import styles from "./ProductList.module.css";
 

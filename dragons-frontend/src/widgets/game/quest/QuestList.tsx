@@ -1,8 +1,8 @@
-import {useAppDispatch, useAppSelector} from "../../store/store.ts";
+import {useAppDispatch, useAppSelector} from "../../../store/store.ts";
 import QuestCard from "./QuestCard.tsx";
-import {fetchQuests} from "../../store/gameInstanceSlice.ts";
+import {fetchQuests} from "../../../store/gameInstanceSlice.ts";
 import styles from "./QuestList.module.css";
-import {hideSpinner, showSpinner} from "../../store/spinnerSlice.ts";
+import {hideSpinner, showSpinner} from "../../../store/spinnerSlice.ts";
 
 export default function QuestList() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
