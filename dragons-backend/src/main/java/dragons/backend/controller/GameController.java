@@ -37,6 +37,12 @@ public class GameController {
     return ResponseEntity.ok(gameState);
   }
   
+  @GetMapping("/restore/{gameId}")
+  public ResponseEntity<GameState> restoreGame(@PathVariable String gameId) {
+    gameState.restore(gameId);
+    return ResponseEntity.ok(gameState);
+  }
+  
   @GetMapping("/reputation")
   public ResponseEntity<PlayerReputationResponse> reputation() {
     PlayerReputationResponse playerReputationResponse = api.fetchReputation(gameState.gameId());

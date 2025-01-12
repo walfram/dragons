@@ -33,31 +33,36 @@ public class GameState {
     this.score = response.score();
     this.highScore = response.highScore();
     this.turn = response.turn();
+    
+    this.message = "Game started";
   }
 
+  public void restore(String gameId) {
+    this.gameId = gameId;
+    this.message = "Restored game";
+  }
+  
   public String gameId() {
     return gameId;
   }
 
   public void update(SolveQuestResponse response) {
-    if (!response.success())
-      return;
-    
     this.lives = response.lives();
     this.gold = response.gold();
     this.score = response.score();
     this.highScore = response.highScore();
     this.turn = response.turn();
+    
     this.message = response.message();
   }
 
   public void update(BuyItemResponse response) {
-    if (!response.shoppingSuccess())
-      return;
-    
     this.gold = response.gold();
     this.lives = response.lives();
     this.level = response.level();
     this.turn = response.turn();
+    
+    this.message = response.shoppingSuccess() ? "Shopping success" : "Shopping failed";
   }
+
 }
