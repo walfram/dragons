@@ -11,7 +11,7 @@ public class RestClientConfig {
   public RestClient restClient() {
     return RestClient.builder()
         .baseUrl("https://dragonsofmugloar.com/api/v2")
-        .requestInterceptor(new LoggingInterceptor())
+        // .requestInterceptor(new LoggingInterceptor())
         .build();
   }
 
