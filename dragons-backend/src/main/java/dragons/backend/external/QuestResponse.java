@@ -11,17 +11,14 @@ public record QuestResponse(
     String probability
 ) {
 
-  @Override
   public String probability() {
     return decrypt(probability);
   }
 
-  @Override
   public String adId() {
     return decrypt(adId);
   }
 
-  @Override
   public String message() {
     return decrypt(message);
   }

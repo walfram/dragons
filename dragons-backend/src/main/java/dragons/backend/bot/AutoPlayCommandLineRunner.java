@@ -1,5 +1,6 @@
 package dragons.backend.bot;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import dragons.backend.controller.GameState;
 import dragons.backend.external.ExternalApi;
 import dragons.backend.external.GameInstanceResponse;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Component;
 public class AutoPlayCommandLineRunner implements CommandLineRunner {
 
   private static final Logger logger = LoggerFactory.getLogger(AutoPlayCommandLineRunner.class);
+  
+  private final ObjectMapper mapper = new ObjectMapper();
 
   private final ExternalApi api;
 
@@ -36,7 +39,8 @@ public class AutoPlayCommandLineRunner implements CommandLineRunner {
 
     while (!gameOver) {
       QuestResponse[] quests = api.fetchQuests(gameState.gameId());
-      Arrays.asList(quests).forEach(quest -> logger.info("### quest: {}", quest));
+//      Arrays.asList(quests).forEach(quest -> logger.info("### quest: {}", quest));
+      logger.info("{}", mapper.writeValueAsString(quests));
       
       QuestResponse questResponse = Arrays.stream(quests)
           .min(new ProbabilitComparator().thenComparing(QuestResponse::reward, Comparator.reverseOrder()))

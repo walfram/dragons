@@ -17,7 +17,7 @@ public class ProbabilitComparator implements Comparator<QuestResponse> {
       "walk in the park",
 
       "gamble",
-      "hmmm...",
+      "hmmm....",
       "risky",
 
       "rather detrimental",
@@ -44,7 +44,7 @@ public class ProbabilitComparator implements Comparator<QuestResponse> {
       rightIndex = -128;
     }
     
-    return rightIndex - leftIndex;
+    return leftIndex - rightIndex;
   }
   
 }
