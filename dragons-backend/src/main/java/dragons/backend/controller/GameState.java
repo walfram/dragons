@@ -10,20 +10,35 @@ public class GameState {
   // TODO should return GameStateView?
   @JsonProperty
   private String gameId;
+  
   @JsonProperty
   private Integer lives;
+  
   @JsonProperty
   private Integer gold;
+  
   @JsonProperty
   private Integer level;
+  
   @JsonProperty
   private Integer score;
+  
   @JsonProperty
   private Integer highScore;
+  
   @JsonProperty
   private Integer turn;
+  
   @JsonProperty
   private String message;
+
+  public String gameId() {
+    return gameId;
+  }
+
+  public Integer lives() {
+    return lives;
+  }
   
   public void init(GameInstanceResponse response) {
     this.gameId = response.gameId();
@@ -36,14 +51,10 @@ public class GameState {
     
     this.message = "Game started";
   }
-
+  
   public void restore(String gameId) {
     this.gameId = gameId;
     this.message = "Restored game";
-  }
-  
-  public String gameId() {
-    return gameId;
   }
 
   public void update(SolveQuestResponse response) {
