@@ -39,6 +39,10 @@ public class GameState {
   public Integer lives() {
     return lives;
   }
+
+  public Integer gold() {
+    return gold;
+  }
   
   public void init(GameInstanceResponse response) {
     this.gameId = response.gameId();
