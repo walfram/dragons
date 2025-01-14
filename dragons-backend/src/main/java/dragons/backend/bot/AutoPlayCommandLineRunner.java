@@ -5,6 +5,7 @@ import dragons.backend.controller.GameState;
 import dragons.backend.external.BuyItemResponse;
 import dragons.backend.external.ExternalApi;
 import dragons.backend.external.GameInstanceResponse;
+import dragons.backend.external.PlayerReputationResponse;
 import dragons.backend.external.ProductResponse;
 import dragons.backend.external.QuestResponse;
 import dragons.backend.external.SolveQuestResponse;
@@ -52,6 +53,9 @@ public class AutoPlayCommandLineRunner implements CommandLineRunner {
           continue;
         }
       }
+
+      PlayerReputationResponse playerReputationResponse = api.fetchReputation(gameState.gameId());
+      logger.info("### reputation: {}", playerReputationResponse);
 
       QuestResponse[] quests = api.fetchQuests(gameState.gameId());
       logger.info("{}", mapper.writeValueAsString(quests));
