@@ -21,10 +21,8 @@ public class LoggingInterceptor implements ClientHttpRequestInterceptor {
 
     HttpStatusCode statusCode = execute.getStatusCode();
     if (!statusCode.is2xxSuccessful()) {
-      logger.info(">>> response status code = {}", statusCode.value());
+      logger.info(">>> response status code = {}, uri = {}", statusCode.value(), request.getURI());
     }
-
-    // logger.debug("<<< response headers = {}", execute.getHeaders());
 
     return execute;
   }
