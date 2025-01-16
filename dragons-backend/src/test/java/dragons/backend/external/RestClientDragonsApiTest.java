@@ -7,6 +7,10 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import dragons.backend.external.impl.RestClientExternalApi;
+import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.PlayerReputationResponse;
+import dragons.backend.game.ProductResponse;
+import dragons.backend.game.QuestResponse;
 import java.util.Arrays;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;

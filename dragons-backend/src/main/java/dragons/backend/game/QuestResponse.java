@@ -1,4 +1,4 @@
-package dragons.backend.external;
+package dragons.backend.game;
 
 import java.util.Base64;
 

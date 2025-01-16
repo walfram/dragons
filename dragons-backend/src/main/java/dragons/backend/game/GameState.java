@@ -1,9 +1,6 @@
-package dragons.backend.controller;
+package dragons.backend.game;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import dragons.backend.external.BuyItemResponse;
-import dragons.backend.external.GameInstanceResponse;
-import dragons.backend.external.SolveQuestResponse;
 
 public class GameState {
 

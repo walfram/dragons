@@ -1,14 +1,15 @@
 package dragons.backend.bot;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dragons.backend.controller.GameState;
-import dragons.backend.external.BuyItemResponse;
+import dragons.backend.game.GameState;
+import dragons.backend.game.BuyItemResponse;
 import dragons.backend.external.ExternalApi;
-import dragons.backend.external.GameInstanceResponse;
-import dragons.backend.external.PlayerReputationResponse;
-import dragons.backend.external.ProductResponse;
-import dragons.backend.external.QuestResponse;
-import dragons.backend.external.SolveQuestResponse;
+import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.PlayerReputationResponse;
+import dragons.backend.game.ProbabilitComparator;
+import dragons.backend.game.ProductResponse;
+import dragons.backend.game.QuestResponse;
+import dragons.backend.game.SolveQuestResponse;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Objects;
@@ -16,8 +17,10 @@ import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
+@Profile("!test")
 @Component
 public class AutoPlayCommandLineRunner implements CommandLineRunner {
 

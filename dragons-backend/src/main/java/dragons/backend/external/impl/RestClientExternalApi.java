@@ -1,12 +1,12 @@
 package dragons.backend.external.impl;
 
-import dragons.backend.external.BuyItemResponse;
+import dragons.backend.game.BuyItemResponse;
 import dragons.backend.external.ExternalApi;
-import dragons.backend.external.GameInstanceResponse;
-import dragons.backend.external.PlayerReputationResponse;
-import dragons.backend.external.ProductResponse;
-import dragons.backend.external.QuestResponse;
-import dragons.backend.external.SolveQuestResponse;
+import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.PlayerReputationResponse;
+import dragons.backend.game.ProductResponse;
+import dragons.backend.game.QuestResponse;
+import dragons.backend.game.SolveQuestResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClient;
 

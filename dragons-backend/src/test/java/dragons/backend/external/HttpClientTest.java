@@ -2,6 +2,7 @@ package dragons.backend.external;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import dragons.backend.game.QuestResponse;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;

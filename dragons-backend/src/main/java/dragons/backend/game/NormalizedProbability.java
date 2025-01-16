@@ -1,4 +1,4 @@
-package dragons.backend.bot;
+package dragons.backend.game;
 
 public class NormalizedProbability {
 

@@ -1,4 +1,4 @@
-package dragons.backend.external;
+package dragons.backend.game;
 
 public class Rot13Decode {
 
