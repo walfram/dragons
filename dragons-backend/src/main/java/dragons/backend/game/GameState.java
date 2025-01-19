@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class GameState {
 
-  // TODO should return GameStateView?
   @JsonProperty
   private String gameId;
   

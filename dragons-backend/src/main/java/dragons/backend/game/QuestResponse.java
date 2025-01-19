@@ -5,7 +5,7 @@ import java.util.Base64;
 public record QuestResponse(
     String adId,
     String message,
-    String reward,
+    Integer reward,
     Integer expiresIn,
     Integer encrypted,
     String probability
