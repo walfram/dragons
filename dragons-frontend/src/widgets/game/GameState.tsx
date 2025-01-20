@@ -4,7 +4,6 @@ import styles from "./GameState.module.css";
 export default function GameState() {
   const gameId = useAppSelector(state => state.gameInstance.gameId);
   const gameState = useAppSelector(state => state.gameInstance.gameState);
-  console.log("gameState", gameState);
 
   return (
       <section className={styles["game-state"]}>

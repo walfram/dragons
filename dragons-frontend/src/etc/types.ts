@@ -16,6 +16,7 @@ export type GameInstance = {
   gameState: GameState;
   quests: Quest[];
   gameOver: boolean;
+  reputation: Reputation
 }
 
 export type Quest = {
