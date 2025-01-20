@@ -40,6 +40,10 @@ export const gameInstanceSlice = createSlice({
         ...state.gameState,
         ...action.payload
       }
+
+      if (action.payload.lives == 0) {
+        state.gameOver = true;
+      }
     });
 
     builder.addCase(fetchQuests.fulfilled, (state, action: PayloadAction<Quest[]>) => {
@@ -51,6 +55,10 @@ export const gameInstanceSlice = createSlice({
       state.gameState.level = action.payload.level;
       state.gameState.lives = action.payload.lives;
       state.gameState.turn = action.payload.turn;
+      
+      if (action.payload.lives == 0) {
+        state.gameOver = true;
+      }
     });
     
     builder.addCase(investigateReputation.fulfilled, (state, action: PayloadAction<Reputation>) => {
