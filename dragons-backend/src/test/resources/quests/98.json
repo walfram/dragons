@@ -1,0 +1,82 @@
+[
+  {
+    "adId": "uzJ0Yn20",
+    "message": "Help defending forest in Darkmire from the intruders",
+    "reward": "143",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Gamble"
+  },
+  {
+    "adId": "52gBhiHW",
+    "message": "Help defending cave in Highpool from the intruders",
+    "reward": "108",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "92ojnhQH",
+    "message": "Help defending manor in Reddrone from the intruders",
+    "reward": "136",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "CjZI8Wo8",
+    "message": "Help defending hill in Frostport from the intruders",
+    "reward": "125",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Risky"
+  },
+  {
+    "adId": "mrg9ohnQ",
+    "message": "Help defending rocky plains in Northcaster from the intruders",
+    "reward": "156",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "AvZsU3qV",
+    "message": "Help defending rocky plains in Fernpine from the intruders",
+    "reward": "125",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Rather detrimental"
+  },
+  {
+    "adId": "ANTIuWKH",
+    "message": "Help defending hill in Dovedrone from the intruders",
+    "reward": "129",
+    "expiresIn": 3,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "9BIAsvPi",
+    "message": "Help defending forest in Lowewhyte from the intruders",
+    "reward": "152",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "6fMcE07U",
+    "message": "Help defending well in Highshaw from the intruders",
+    "reward": "133",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "hbYsBuyB",
+    "message": "Help defending woodland in Darkloft from the intruders",
+    "reward": "161",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Gamble"
+  }
+]

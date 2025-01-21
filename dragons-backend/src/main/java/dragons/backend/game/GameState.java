@@ -40,7 +40,7 @@ public class GameState {
     return gold;
   }
   
-  public void init(GameInstanceResponse response) {
+  public void init(GameStartResponse response) {
     this.gameId = response.gameId();
     this.lives = response.lives();
     this.gold = response.gold();

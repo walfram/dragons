@@ -1,0 +1,82 @@
+[
+  {
+    "adId": "JrjJrM9S",
+    "message": "Help defending rocky plains in Southfirth from the intruders",
+    "reward": "141",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "bALgGIdv",
+    "message": "Help defending woodland in Eastgarden from the intruders",
+    "reward": "155",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Gamble"
+  },
+  {
+    "adId": "J7mozYkA",
+    "message": "Help defending manor in Strongpine from the intruders",
+    "reward": "101",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Walk in the park"
+  },
+  {
+    "adId": "uzJ0Yn20",
+    "message": "Help defending forest in Darkmire from the intruders",
+    "reward": "143",
+    "expiresIn": 4,
+    "encrypted": null,
+    "probability": "Gamble"
+  },
+  {
+    "adId": "52gBhiHW",
+    "message": "Help defending cave in Highpool from the intruders",
+    "reward": "108",
+    "expiresIn": 4,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "92ojnhQH",
+    "message": "Help defending manor in Reddrone from the intruders",
+    "reward": "136",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "CjZI8Wo8",
+    "message": "Help defending hill in Frostport from the intruders",
+    "reward": "125",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Risky"
+  },
+  {
+    "adId": "mrg9ohnQ",
+    "message": "Help defending rocky plains in Northcaster from the intruders",
+    "reward": "156",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "AvZsU3qV",
+    "message": "Help defending rocky plains in Fernpine from the intruders",
+    "reward": "125",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Rather detrimental"
+  },
+  {
+    "adId": "ANTIuWKH",
+    "message": "Help defending hill in Dovedrone from the intruders",
+    "reward": "129",
+    "expiresIn": 6,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  }
+]

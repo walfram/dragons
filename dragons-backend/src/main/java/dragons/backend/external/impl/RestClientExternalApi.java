@@ -2,7 +2,7 @@ package dragons.backend.external.impl;
 
 import dragons.backend.game.BuyItemResponse;
 import dragons.backend.external.ExternalApi;
-import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.GameStartResponse;
 import dragons.backend.game.PlayerReputationResponse;
 import dragons.backend.game.ProductResponse;
 import dragons.backend.game.QuestResponse;
@@ -19,8 +19,8 @@ public class RestClientExternalApi implements ExternalApi {
     this.restClient = restClient;
   }
 
-  public GameInstanceResponse startGame() {
-    return restClient.post().uri("/game/start").retrieve().body(GameInstanceResponse.class);
+  public GameStartResponse startGame() {
+    return restClient.post().uri("/game/start").retrieve().body(GameStartResponse.class);
   }
 
   public QuestResponse[] fetchQuests(String gameId) {

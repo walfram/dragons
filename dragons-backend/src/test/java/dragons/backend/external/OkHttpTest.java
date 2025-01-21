@@ -1,7 +1,7 @@
 package dragons.backend.external;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.GameStartResponse;
 import dragons.backend.game.QuestResponse;
 import java.io.IOException;
 import java.util.Arrays;
@@ -30,9 +30,9 @@ public class OkHttpTest {
     Request startGameRequest = new Request.Builder().url("https://dragonsofmugloar.com/api/v2/game/start").post(emptyBody).build();
     Response startGameResponse = client.newCall(startGameRequest).execute();
 
-    GameInstanceResponse gameInstanceResponse = mapper.readValue(startGameResponse.body().byteStream(), GameInstanceResponse.class);
+    GameStartResponse gameStartResponse = mapper.readValue(startGameResponse.body().byteStream(), GameStartResponse.class);
 
-    String gameId = gameInstanceResponse.gameId();
+    String gameId = gameStartResponse.gameId();
     logger.debug("got game id = {}", gameId);
 
     Request questsRequest = new Builder().url("https://dragonsofmugloar.com/api/v2/%s/messages".formatted(gameId)).get().build();

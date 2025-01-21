@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import dragons.backend.external.impl.RestClientExternalApi;
-import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.GameStartResponse;
 import dragons.backend.game.PlayerReputationResponse;
 import dragons.backend.game.ProductResponse;
 import dragons.backend.game.QuestResponse;
@@ -28,14 +28,14 @@ public class RestClientDragonsApiTest {
   private static final Logger logger = LoggerFactory.getLogger(RestClientDragonsApiTest.class);
   
   @Autowired
-  RestClientExternalApi dragonsApi;
+  ExternalApi dragonsApi;
 
   static String gameId;
 
   @Test
   @Order(1)
   void should_execute_start_game() {
-    GameInstanceResponse gameInstance = dragonsApi.startGame();
+    GameStartResponse gameInstance = dragonsApi.startGame();
     gameId = gameInstance.gameId();
 
     assertNotNull(gameId);

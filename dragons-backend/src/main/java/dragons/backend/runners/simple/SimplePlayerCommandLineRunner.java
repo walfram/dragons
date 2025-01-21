@@ -1,9 +1,9 @@
-package dragons.backend.bot;
+package dragons.backend.runners.simple;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import dragons.backend.external.ExternalApi;
 import dragons.backend.game.BuyItemResponse;
-import dragons.backend.game.GameInstanceResponse;
+import dragons.backend.game.GameStartResponse;
 import dragons.backend.game.GameState;
 import dragons.backend.game.PlayerReputationResponse;
 import dragons.backend.game.ProbabilityComparator;
@@ -20,7 +20,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-@Profile("!test")
+@Profile("!test & default & !advanced")
 @Component
 public class SimplePlayerCommandLineRunner implements CommandLineRunner {
 
@@ -39,10 +39,10 @@ public class SimplePlayerCommandLineRunner implements CommandLineRunner {
   public void run(String... args) throws Exception {
     logger.debug(">>> running auto-play");
 
-    GameInstanceResponse gameInstanceResponse = api.startGame();
+    GameStartResponse gameStartResponse = api.startGame();
 
     GameState gameState = new GameState();
-    gameState.init(gameInstanceResponse);
+    gameState.init(gameStartResponse);
 
     boolean gameOver = false;
 

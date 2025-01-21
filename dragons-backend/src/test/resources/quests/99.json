@@ -1,0 +1,82 @@
+[
+  {
+    "adId": "ANTIuWKH",
+    "message": "Help defending hill in Dovedrone from the intruders",
+    "reward": "129",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "9BIAsvPi",
+    "message": "Help defending forest in Lowewhyte from the intruders",
+    "reward": "152",
+    "expiresIn": 3,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "6fMcE07U",
+    "message": "Help defending well in Highshaw from the intruders",
+    "reward": "133",
+    "expiresIn": 3,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "wlyWv8Zx",
+    "message": "Help defending foggy riverside in Millermere from the intruders",
+    "reward": "122",
+    "expiresIn": 6,
+    "encrypted": null,
+    "probability": "Playing with fire"
+  },
+  {
+    "adId": "hdsalhky",
+    "message": "Help defending manor in Scalegannon from the intruders",
+    "reward": "101",
+    "expiresIn": 6,
+    "encrypted": null,
+    "probability": "Rather detrimental"
+  },
+  {
+    "adId": "Cmj62eip",
+    "message": "Help defending rocky plains in Ferncawl from the intruders",
+    "reward": "134",
+    "expiresIn": 6,
+    "encrypted": null,
+    "probability": "Impossible"
+  },
+  {
+    "adId": "YbgL57gY",
+    "message": "Help defending stronghold in Masonmire from the intruders",
+    "reward": "84",
+    "expiresIn": 7,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "d0qhkS0d",
+    "message": "Help defending palace in Towerfair from the intruders",
+    "reward": "163",
+    "expiresIn": 7,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "3lFyfvKX",
+    "message": "Help defending swamp in Easthole from the intruders",
+    "reward": "142",
+    "expiresIn": 7,
+    "encrypted": null,
+    "probability": "Quite likely"
+  },
+  {
+    "adId": "2JG2WOL9",
+    "message": "Help defending keep in Everport from the intruders",
+    "reward": "142",
+    "expiresIn": 7,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  }
+]

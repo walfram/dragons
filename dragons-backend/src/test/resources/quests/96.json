@@ -1,0 +1,82 @@
+[
+  {
+    "adId": "8XMS69Jn",
+    "message": "Help defending cave in Eastgill from the intruders",
+    "reward": "168",
+    "expiresIn": 1,
+    "encrypted": null,
+    "probability": "Quite likely"
+  },
+  {
+    "adId": "q7XUC5tD",
+    "message": "Help defending island in Scalecawl from the intruders",
+    "reward": "84",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Quite likely"
+  },
+  {
+    "adId": "E6P5DKbu",
+    "message": "Help defending foggy riverside in Razorwatch from the intruders",
+    "reward": "150",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Hmmm...."
+  },
+  {
+    "adId": "bHzsnC5h",
+    "message": "Help defending thicket in Northhill from the intruders",
+    "reward": "142",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Hmmm...."
+  },
+  {
+    "adId": "dwQxCEhU",
+    "message": "Help defending cave in Lightgannon from the intruders",
+    "reward": "150",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Risky"
+  },
+  {
+    "adId": "eAvapWs4",
+    "message": "Help defending island in Everscale from the intruders",
+    "reward": "112",
+    "expiresIn": 2,
+    "encrypted": null,
+    "probability": "Walk in the park"
+  },
+  {
+    "adId": "ISOxNMyA",
+    "message": "Help defending cave in Millerscale from the intruders",
+    "reward": "172",
+    "expiresIn": 3,
+    "encrypted": null,
+    "probability": "Walk in the park"
+  },
+  {
+    "adId": "JrjJrM9S",
+    "message": "Help defending rocky plains in Southfirth from the intruders",
+    "reward": "141",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Suicide mission"
+  },
+  {
+    "adId": "bALgGIdv",
+    "message": "Help defending woodland in Eastgarden from the intruders",
+    "reward": "155",
+    "expiresIn": 5,
+    "encrypted": null,
+    "probability": "Gamble"
+  },
+  {
+    "adId": "J7mozYkA",
+    "message": "Help defending manor in Strongpine from the intruders",
+    "reward": "101",
+    "expiresIn": 6,
+    "encrypted": null,
+    "probability": "Walk in the park"
+  }
+]

@@ -1,6 +1,6 @@
 package dragons.backend.game;
 
-public record GameInstanceResponse(
+public record GameStartResponse(
     String gameId,
     Integer lives,
     Integer gold,
