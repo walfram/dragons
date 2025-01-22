@@ -22,7 +22,6 @@ public class AdvancedPlayerCommandLineRunner implements CommandLineRunner {
   @Override
   public void run(String... args) throws Exception {
     logger.info("### running AdvancedPlayerCommandLineRunner");
-    // start game
     
     Context context = new Context(api);
     
@@ -33,7 +32,6 @@ public class AdvancedPlayerCommandLineRunner implements CommandLineRunner {
 //      logger.warn("{}", next.getClass().getSimpleName());
     }
    
-    logger.info("### game over");
-    logger.info("context = {}", context);
+    logger.info("### game over ###");
   }
 }

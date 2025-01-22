@@ -18,7 +18,7 @@ public class BuyHealthPotionAction implements Action {
   public Action exec() {
     if (context.canByHealthPotion()) {
       BuyItemResponse response = context.api().buyItem(context.gameId(), "hpot");
-      logger.debug("buy health potion = {}", response);
+      logger.info("buy health potion = {}", response);
       context.update(response);
     } else {
       logger.warn("cannot buy health potion, gold = {}", context.gold());

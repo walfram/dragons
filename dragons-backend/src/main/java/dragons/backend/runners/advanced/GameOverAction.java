@@ -15,7 +15,7 @@ public class GameOverAction implements Action {
 
   @Override
   public Action exec() {
-    logger.debug("game over, context = {}", context);
+    logger.info("game over, context = {}", context);
     return null;
   }
 }

@@ -24,7 +24,7 @@ public class SolveQuestAction implements Action {
     logger.info("solved quest success={}, lives={}, gold={}, score={}, turn={}", response.success(), response.lives(), response.gold(), response.score(), response.turn());
 
     if (context.healthPotionNeeded()) {
-      logger.debug("NEED HEALTH POTION!!!");
+      logger.error("NEED HEALTH POTION!!!");
       return new BuyHealthPotionAction(context);
     }
     

@@ -26,7 +26,7 @@ public class Context {
   private int turn;
 
   private List<ProductResponse> products;
-  private int idling = 0;
+  private int idling = 24;
   
   private PlayerReputationResponse reputation;
 
@@ -109,15 +109,7 @@ public class Context {
     this.idling = Math.max(0, idling - 1);
   }
 
-  public boolean idling() {
+  public boolean canIdle() {
     return idling > 0;
-  }
-
-  public void startIdling() {
-    this.idling = 16;
-  }
-
-  public void stopIdling() {
-    this.idling = 0;
   }
 }

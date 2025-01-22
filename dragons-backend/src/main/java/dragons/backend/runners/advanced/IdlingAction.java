@@ -19,7 +19,7 @@ public class IdlingAction implements Action {
     PlayerReputationResponse response = context.api().fetchReputation(context.gameId());
     context.update(response);
     
-    logger.info("idling, reputation = {}", response);
+    logger.warn("idling, reputation = {}", response);
     context.idle();
     
     return new FetchQuestsAction(context);

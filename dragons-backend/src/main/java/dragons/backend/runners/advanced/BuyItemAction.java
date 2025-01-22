@@ -22,7 +22,7 @@ public class BuyItemAction implements Action {
     Optional<ProductResponse> first = context.affordableProducts().stream().max(Comparator.comparing(ProductResponse::cost));
     
     if (first.isPresent()) {
-      logger.debug("buying item = {}", first.get().name());
+      logger.info("buying item = {}", first.get().name());
       BuyItemResponse response = context.api().buyItem(context.gameId(), first.get().id());
       logger.debug("purchase result = {}", response);
       context.update(response);

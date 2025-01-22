@@ -1,13 +1,15 @@
 package dragons.backend.runners.advanced;
 
 import dragons.backend.game.QuestResponse;
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class FetchQuestsAction implements Action {
 
   private static final Logger logger = LoggerFactory.getLogger(FetchQuestsAction.class);
-  
+
   private final Context context;
 
   public FetchQuestsAction(Context context) {
@@ -17,7 +19,7 @@ public class FetchQuestsAction implements Action {
   @Override
   public Action exec() {
     QuestResponse[] quests = context.api().fetchQuests(context.gameId());
-    logger.info("fetched quests {}", quests.length);
+    logger.info("fetched quests, probabilities = {}", Arrays.stream(quests).map(QuestResponse::probability).collect(Collectors.toSet()));
     return new SelectQuestAction(context, quests);
   }
 }

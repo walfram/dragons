@@ -24,21 +24,18 @@ public class SelectQuestAction implements Action {
   public Action exec() {
     List<QuestResponse> easyQuests = Arrays.stream(quests)
         .filter(q -> QuestProbability.of(q.probability()).isEasy())
-        .filter(q -> q.expiresIn() >= 1)
         .sorted(Comparator.comparingInt(QuestResponse::reward).reversed())
         .toList();
-    easyQuests.forEach(q -> logger.debug("easy quest id={}, reward={}, expiresIn={}, probability={}", q.adId(), q.reward(), q.expiresIn(), q.probability()));
+    
+    // easyQuests.forEach(q -> logger.debug("easy quest id={}, reward={}, expiresIn={}, probability={}", q.adId(), q.reward(), q.expiresIn(), q.probability()));
 
-    // TODO if no easy quests - "idle" via investigation check
-    if (easyQuests.isEmpty() && !context.idling()) {
-      if (!context.idling()) {
-        context.startIdling();
-      } 
-      
-      logger.info("could not find easy quest, idling");
-      return new IdlingAction(context);
-    } else {
-      context.stopIdling();
+    if (easyQuests.isEmpty()) {
+      if (context.canIdle()) {
+        logger.warn("could not find easy quest, idling");
+        return new IdlingAction(context);
+      } else {
+        logger.warn("could not find easy quest, cannot idle anymore");
+      }
     }
     
     QuestResponse quest = Arrays.stream(quests)
