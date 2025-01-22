@@ -1,4 +1,4 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game.actions;
 
 public interface Action {
 

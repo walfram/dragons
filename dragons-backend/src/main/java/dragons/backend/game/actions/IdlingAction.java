@@ -1,6 +1,7 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game.actions;
 
 import dragons.backend.game.PlayerReputationResponse;
+import dragons.backend.game.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

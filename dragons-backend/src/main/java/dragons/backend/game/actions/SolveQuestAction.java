@@ -1,7 +1,8 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game.actions;
 
 import dragons.backend.game.QuestResponse;
 import dragons.backend.game.SolveQuestResponse;
+import dragons.backend.game.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,7 @@ public class SolveQuestAction implements Action {
     logger.info("solved quest success={}, lives={}, gold={}, score={}, turn={}", response.success(), response.lives(), response.gold(), response.score(), response.turn());
 
     if (context.healthPotionNeeded()) {
-      logger.error("NEED HEALTH POTION!!!");
+      logger.warn("NEED HEALTH POTION!!!");
       return new BuyHealthPotionAction(context);
     }
     

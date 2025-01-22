@@ -1,8 +1,8 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game;
 
-import static dragons.backend.runners.advanced.Difficulty.EASY;
-import static dragons.backend.runners.advanced.Difficulty.HARD;
-import static dragons.backend.runners.advanced.Difficulty.MEDIUM;
+import static dragons.backend.game.Difficulty.EASY;
+import static dragons.backend.game.Difficulty.HARD;
+import static dragons.backend.game.Difficulty.MEDIUM;
 
 import java.util.Arrays;
 import java.util.List;

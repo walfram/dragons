@@ -1,6 +1,7 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game.actions;
 
 import dragons.backend.game.QuestResponse;
+import dragons.backend.game.Context;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;

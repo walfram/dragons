@@ -1,11 +1,6 @@
-package dragons.backend.runners.advanced;
+package dragons.backend.game;
 
 import dragons.backend.external.ExternalApi;
-import dragons.backend.game.BuyItemResponse;
-import dragons.backend.game.GameStartResponse;
-import dragons.backend.game.PlayerReputationResponse;
-import dragons.backend.game.ProductResponse;
-import dragons.backend.game.SolveQuestResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
