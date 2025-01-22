@@ -1,6 +1,11 @@
 package dragons.backend.game;
 
 import dragons.backend.external.ExternalApi;
+import dragons.backend.game.responses.BuyItemResponse;
+import dragons.backend.game.responses.GameStartResponse;
+import dragons.backend.game.responses.PlayerReputationResponse;
+import dragons.backend.game.responses.ProductResponse;
+import dragons.backend.game.responses.SolveQuestResponse;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -8,6 +13,9 @@ import java.util.Objects;
 public class Context {
 
   private static final String HEALTH_POTION_ID = "hpot";
+  private static final int HEALTH_POTION_PRICE = 50;
+  private static final int LIVES_TOO_LOW_THRESHOLD = 1;
+  private static final int MAX_IDLING_TURNS = 24;
 
   private final ExternalApi api;
 
@@ -21,7 +29,7 @@ public class Context {
   private int turn;
 
   private List<ProductResponse> products;
-  private int idling = 24;
+  private int idling = MAX_IDLING_TURNS;
   
   private PlayerReputationResponse reputation;
 
@@ -77,15 +85,15 @@ public class Context {
 
   @Override
   public String toString() {
-    return "Game[id=%s,lives=%s,gold=%s,level=%s,score=%s,turn=%s]".formatted(gameId, lives, gold, level, score, turn);
+    return "Game[id=%s,lives=%s,gold=%s,level=%s,score=%s,turn=%s], reputation=%s".formatted(gameId, lives, gold, level, score, turn, reputation);
   }
 
   public boolean healthPotionNeeded() {
-    return lives == 1;
+    return lives == LIVES_TOO_LOW_THRESHOLD;
   }
 
   public boolean canByHealthPotion() {
-    return gold >= 50;
+    return gold >= HEALTH_POTION_PRICE;
   }
 
   public void bindProducts(ProductResponse[] products) {

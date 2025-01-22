@@ -1,5 +1,6 @@
-package dragons.backend.game;
+package dragons.backend.game.responses;
 
+import dragons.backend.game.Rot13Decode;
 import java.util.Base64;
 
 public record QuestResponse(

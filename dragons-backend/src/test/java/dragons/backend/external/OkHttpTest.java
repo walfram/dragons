@@ -1,8 +1,8 @@
 package dragons.backend.external;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dragons.backend.game.GameStartResponse;
-import dragons.backend.game.QuestResponse;
+import dragons.backend.game.responses.GameStartResponse;
+import dragons.backend.game.responses.QuestResponse;
 import java.io.IOException;
 import java.util.Arrays;
 import okhttp3.MediaType;

@@ -1,7 +1,7 @@
 package dragons.backend.game.actions;
 
-import dragons.backend.game.BuyItemResponse;
-import dragons.backend.game.ProductResponse;
+import dragons.backend.game.responses.BuyItemResponse;
+import dragons.backend.game.responses.ProductResponse;
 import dragons.backend.game.Context;
 import java.util.Comparator;
 import java.util.Optional;

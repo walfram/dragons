@@ -1,4 +1,4 @@
-package dragons.backend.game;
+package dragons.backend.game.responses;
 
 public record BuyItemResponse(
     Boolean shoppingSuccess,

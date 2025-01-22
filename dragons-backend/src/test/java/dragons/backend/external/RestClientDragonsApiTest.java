@@ -6,11 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import dragons.backend.external.impl.RestClientExternalApi;
-import dragons.backend.game.GameStartResponse;
-import dragons.backend.game.PlayerReputationResponse;
-import dragons.backend.game.ProductResponse;
-import dragons.backend.game.QuestResponse;
+import dragons.backend.game.responses.GameStartResponse;
+import dragons.backend.game.responses.PlayerReputationResponse;
+import dragons.backend.game.responses.ProductResponse;
+import dragons.backend.game.responses.QuestResponse;
 import java.util.Arrays;
 import org.junit.jupiter.api.MethodOrderer.OrderAnnotation;
 import org.junit.jupiter.api.Order;

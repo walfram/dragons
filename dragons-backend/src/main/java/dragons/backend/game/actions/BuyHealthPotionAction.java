@@ -1,6 +1,6 @@
 package dragons.backend.game.actions;
 
-import dragons.backend.game.BuyItemResponse;
+import dragons.backend.game.responses.BuyItemResponse;
 import dragons.backend.game.Context;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

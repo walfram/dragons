@@ -1,7 +1,7 @@
 package dragons.backend.game.actions;
 
 import dragons.backend.game.ProbabilityComparator;
-import dragons.backend.game.QuestResponse;
+import dragons.backend.game.responses.QuestResponse;
 import dragons.backend.game.Context;
 import dragons.backend.game.QuestProbability;
 import java.util.Arrays;

@@ -1,5 +1,6 @@
 package dragons.backend.game;
 
+import dragons.backend.game.responses.QuestResponse;
 import java.util.Comparator;
 import java.util.List;
 import org.slf4j.Logger;
