@@ -97,3 +97,17 @@ dialog .dialog-buttons {
 .dialog-content .close {
   
 }
+
+.dialog-content .quest-result-success {
+  color: darkgreen;
+}
+.dialog-content .quest-result-success h3::before {
+  content: "\1F44D"; 
+}
+
+.dialog-content .quest-result-failed {
+  color: red;
+}
+.dialog-content .quest-result-failed h3::before {
+  content: "\1F926";
+}

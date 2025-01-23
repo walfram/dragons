@@ -15,6 +15,7 @@ export default function QuestDetailsDialog({quest, onCancelQuest, onAcceptQuest}
 
         <div>probability: {decodeProbability(quest)}</div>
         <div>reward: {quest.reward}</div>
+        <div>expires in: {quest.expiresIn}</div>
         
         <div className={"dialog-buttons"}>
           <button onClick={() => onCancelQuest()} className={"cancel"}>cancel</button>
