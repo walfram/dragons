@@ -1,5 +1,7 @@
 package dragons.backend.game.actions;
 
+import static dragons.backend.game.Context.HEALTH_POTION_ID;
+
 import dragons.backend.game.responses.BuyItemResponse;
 import dragons.backend.game.Context;
 import org.slf4j.Logger;
@@ -18,12 +20,14 @@ public class BuyHealthPotionAction implements Action {
   @Override
   public Action exec() {
     if (context.canByHealthPotion()) {
-      BuyItemResponse response = context.api().buyItem(context.gameId(), "hpot");
+      BuyItemResponse response = context.api().buyItem(context.gameId(), HEALTH_POTION_ID);
+      
       logger.info("buy health potion = {}", response);
-      context.update(response);
+      context.onBuyItem(response);
     } else {
       logger.warn("cannot buy health potion, gold = {}", context.gold());
     }
+    
     return new FetchQuestsAction(context);
   }
 }

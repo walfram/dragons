@@ -29,8 +29,6 @@ public class SelectQuestAction implements Action {
         .sorted(Comparator.comparingInt(QuestResponse::reward).reversed())
         .toList();
     
-    // easyQuests.forEach(q -> logger.debug("easy quest id={}, reward={}, expiresIn={}, probability={}", q.adId(), q.reward(), q.expiresIn(), q.probability()));
-
     if (easyQuests.isEmpty()) {
       if (context.canIdle()) {
         logger.warn("could not find easy quest, idling");
@@ -44,7 +42,8 @@ public class SelectQuestAction implements Action {
         .min(new ProbabilityComparator().thenComparing(QuestResponse::reward, Comparator.reverseOrder()))
         .orElseThrow();
 
-    logger.info("selected quest id={}, reward={}, probability={}, expires={}", quest.adId(), quest.reward(), quest.probability(), quest.expiresIn());
+    logger.info("selected quest id={}, reward={}, probability={}, expires={}", 
+        quest.adId(), quest.reward(), quest.probability(), quest.expiresIn());
 
     return new SolveQuestAction(context, quest);
   }

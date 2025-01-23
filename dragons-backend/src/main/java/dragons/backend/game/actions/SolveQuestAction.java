@@ -21,8 +21,10 @@ public class SolveQuestAction implements Action {
   @Override
   public Action exec() {
     SolveQuestResponse response = context.api().solveQuest(context.gameId(), quest.adId());
-    context.update(response);
-    logger.info("solved quest success={}, lives={}, gold={}, score={}, turn={}", response.success(), response.lives(), response.gold(), response.score(), response.turn());
+    context.onSolveQuest(response);
+    
+    logger.info("solved quest success={}, lives={}, gold={}, score={}, turn={}", 
+        response.success(), response.lives(), response.gold(), response.score(), response.turn());
 
     if (context.healthPotionNeeded()) {
       logger.warn("NEED HEALTH POTION!!!");

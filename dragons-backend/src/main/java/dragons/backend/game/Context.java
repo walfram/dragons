@@ -12,7 +12,7 @@ import java.util.Objects;
 
 public class Context {
 
-  private static final String HEALTH_POTION_ID = "hpot";
+  public static final String HEALTH_POTION_ID = "hpot";
   private static final int HEALTH_POTION_PRICE = 50;
   private static final int LIVES_TOO_LOW_THRESHOLD = 1;
   private static final int MAX_IDLING_TURNS = 24;
@@ -41,7 +41,7 @@ public class Context {
     return api;
   }
 
-  public void update(GameStartResponse response) {
+  public void init(GameStartResponse response) {
     this.gameId = response.gameId();
     this.lives = response.lives();
     this.gold = response.gold();
@@ -59,7 +59,7 @@ public class Context {
     return turn;
   }
 
-  public void update(SolveQuestResponse response) {
+  public void onSolveQuest(SolveQuestResponse response) {
     this.gold = response.gold();
     this.score = response.score();
     this.highScore = response.highScore();
@@ -67,14 +67,14 @@ public class Context {
     this.lives = response.lives();
   }
 
-  public void update(BuyItemResponse response) {
+  public void onBuyItem(BuyItemResponse response) {
     this.gold = response.gold();
     this.turn = response.turn();
     this.lives = response.lives();
     this.level = response.level();
   }
 
-  public void update(PlayerReputationResponse response) {
+  public void onInvestigateReputation(PlayerReputationResponse response) {
     this.reputation = response;
     this.turn += 1;
   }

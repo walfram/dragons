@@ -18,7 +18,7 @@ public class IdlingAction implements Action {
   @Override
   public Action exec() {
     PlayerReputationResponse response = context.api().fetchReputation(context.gameId());
-    context.update(response);
+    context.onInvestigateReputation(response);
     
     logger.warn("idling, reputation = {}", response);
     context.idle();

@@ -26,7 +26,7 @@ public class BuyItemAction implements Action {
       logger.info("buying item = {}", first.get().name());
       BuyItemResponse response = context.api().buyItem(context.gameId(), first.get().id());
       logger.debug("purchase result = {}", response);
-      context.update(response);
+      context.onBuyItem(response);
     } else {
       logger.warn("could not pick item to buy");
     }

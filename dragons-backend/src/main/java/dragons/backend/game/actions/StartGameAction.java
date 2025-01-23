@@ -20,7 +20,7 @@ public class StartGameAction implements Action {
   @Override
   public Action exec() {
     GameStartResponse response = context.api().startGame();
-    context.update(response);
+    context.init(response);
     logger.info("start game = {}", response);
 
     ProductResponse[] products = context.api().fetchProducts(context.gameId());

@@ -20,7 +20,10 @@ public class FetchQuestsAction implements Action {
   @Override
   public Action exec() {
     QuestResponse[] quests = context.api().fetchQuests(context.gameId());
-    logger.info("fetched quests, probabilities = {}", Arrays.stream(quests).map(QuestResponse::probability).collect(Collectors.toSet()));
+    
+    logger.info("fetched quests, probabilities = {}", 
+        Arrays.stream(quests).map(QuestResponse::probability).collect(Collectors.toSet()));
+    
     return new SelectQuestAction(context, quests);
   }
 }
